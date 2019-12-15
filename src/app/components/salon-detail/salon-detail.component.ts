@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/user';
+import { User } from '../../models/user';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { SalonService } from 'src/app/services/salon.service';
-import { UserService } from 'src/app/services/user.service';
-import { GLOBAL } from 'src/app/services/global';
-import { TableService } from 'src/app/services/table.service';
+import { SalonService } from '../../services/salon.service';
+import { UserService } from '../../services/user.service';
+import { GLOBAL } from '../../services/global';
+import { TableService } from '../../services/table.service';
 import { NgModel } from '@angular/forms';
-import { Salon } from 'src/app/models/salon';
-import { Table } from 'src/app/models/table';
+import { Salon } from '../../models/salon';
+import { Table } from '../../models/table';
 import { ViewChild, ElementRef } from '@angular/core';
 import { CdkDragEnd } from '@angular/cdk/drag-drop';
 
