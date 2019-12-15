@@ -47,11 +47,11 @@ export class AppComponent implements OnInit {
     }
 
     //LISTEN WEBSOCKET EVENT
-    /*
+
     this.webSocketService.listen('message').subscribe((data) => {
       console.log(data);
     });
-*/
+
 
   }
 
