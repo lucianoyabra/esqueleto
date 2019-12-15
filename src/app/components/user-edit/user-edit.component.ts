@@ -92,6 +92,8 @@ export class UserEditComponent implements OnInit {
             }else{
               reject(xhr.response);
             }
+          }else{
+            console.log('vino con error');
           }
         }
       }
