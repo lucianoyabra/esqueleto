@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Proyecto de api rest con Node js para el curso de MEAN",
   "main": "index.js",
+  "engines": {
+    "node": "12.13.0"
+  },
   "scripts": {
     "desarrollo": "node index.js",
     "start": "node index.js",
