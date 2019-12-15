@@ -4,8 +4,8 @@
   "description": "Proyecto de api rest con Node js para el curso de MEAN",
   "main": "index.js",
   "scripts": {
-    "desarrollo": "nodemon index.js",
-    "start": "nodemon index.js",
+    "desarrollo": "node index.js",
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Luciano Yabra",
