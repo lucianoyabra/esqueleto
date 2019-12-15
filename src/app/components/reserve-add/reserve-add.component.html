@@ -1,0 +1,67 @@
+
+<div class="user-edit-class">
+  <h1>{{titulo}}</h1>
+  <div *ngIf="alertMessage">
+      <div class="alert alert-info">
+        {{alertMessage}}
+      </div>
+    </div>
+    <form #reserveForm="ngForm" (submit)="onSubmit()" class="col-md-7">
+        <p>
+          <label>Name</label>
+          <input type="text" #name="ngModel" name="name" [(ngModel)]="reserve.name"
+          class="form-control" required />
+          <span style="color: red;"
+          *ngIf="!name.valid && name.touched">Debe ingresar el nombre</span>
+        </p>
+        <p>
+          <label>Email</label>
+          <input type="email" #email="ngModel" name="email" [(ngModel)]="reserve.email"
+          class="form-control" required />
+          <span style="color: red;"
+          *ngIf="!email.valid && email.touched">Debe ingresar el email</span>
+        </p>
+        <p>
+          <label>Phone</label>
+          <input type="text" #phone="ngModel"
+          name="phone" [(ngModel)]="reserve.phone"
+          class="form-control"  />
+        </p>
+
+          <div class="form-group">
+            <label for="exampleFormControlSelect1">Personas</label>
+            <select #people="ngModel" name="people" [(ngModel)]="reserve.people" class="form-control" id="exampleFormControlSelect1" required>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+              <option>+10</option>
+            </select>
+          </div>
+
+        <p>
+          <label>Date</label>
+          <input type="date" #date="ngModel"
+          name="date" [(ngModel)]="reserve.date"
+          class="form-control" required />
+          <span style="color: red;"
+          *ngIf="!date.valid && date.touched">Debe Ingresar la fecha</span>
+        </p>
+        <p>
+          <label>Time</label>
+          <input type="time" #time="ngModel"
+          name="time" [(ngModel)]="reserve.time"
+          class="form-control" required />
+          <span style="color: red;"
+          *ngIf="!time.valid && time.touched">Debe Ingresar el horario</span>
+        </p>
+
+        <input type="submit" value="{{titulo}}" class="btn btn-primary" >
+      </form>
+  </div>

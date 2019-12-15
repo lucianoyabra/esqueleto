@@ -1,0 +1,35 @@
+<div class="user-edit-class" *ngIf="identity">
+  <h1>{{titulo}}</h1>
+  <div *ngIf="alertMessage">
+    <div class="alert alert-info">
+      {{alertMessage}}
+    </div>
+  </div>
+<table id="tabla-reservas" class="table table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">Hora</th>
+      <th scope="col">Name</th>
+      <th scope="col">Fecha</th>
+      <th scope="col">Contacto</th>
+      <th scope="col">Personas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let reserve of reserves">
+      <th scope="row">{{reserve.time}}</th>
+      <td>{{reserve.name}}</td>
+      <td>{{reserve.date}}</td>
+      <td>{{reserve.phone + ' - '+reserve.email}}</td>
+      <td>{{reserve.people}}</td>
+      <td *ngIf="identity.role == 'ROLE_ADMIN'">
+          <a (click)="onCancelReserve()"
+          class="btn btn-sm btn-danger" >Cancelar</a>
+      </td>
+      <td *ngIf="identity.role == 'ROLE_ADMIN'">
+          <a class="btn btn-sm btn-success" >Confirmar</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
