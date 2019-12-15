@@ -6,7 +6,7 @@ import { Event } from '../../models/event';
 import { Reserve } from '../../models/reserve';
 import { GLOBAL } from '../../services/global';
 import { ReserveService } from '../../services/reserve.service';
-import { WebsocketService } from 'src/app/socket/websocket.service';
+import { WebsocketService } from '../../socket/websocket.service';
 import * as io from 'socket.io-client';
 import { Observable, BehaviorSubject, Subscriber } from 'rxjs';
 

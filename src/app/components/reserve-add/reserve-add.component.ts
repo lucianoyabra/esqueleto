@@ -6,7 +6,7 @@ import { Event } from '../../models/event';
 import { Reserve } from '../../models/reserve';
 import { GLOBAL } from '../../services/global';
 import { ReserveService } from '../../services/reserve.service';
-import { WebsocketService } from 'src/app/socket/websocket.service';
+import { WebsocketService } from '../../socket/websocket.service';
 import { ReserveDetailComponent } from '../reserve-detail/reserve-detail.component';
 
 @Component({
