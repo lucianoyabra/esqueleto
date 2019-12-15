@@ -34,6 +34,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(){
+    console.log('entro al oninit de app.component');
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
     console.log(this.identity);
