@@ -3,11 +3,11 @@
 var express = require('express');
 var bodyparser = require('body-parser');
 // Create link to Angular build directory
-var distDir = __dirname + "/dist/";
-app.use(express.static(distDir));
+
 
 var app = express();
-
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
 //Cargar Rutas
 var table_routes = require('./routes/table');
 var reserve_routes = require('./routes/reserve');
