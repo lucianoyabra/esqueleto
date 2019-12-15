@@ -7,7 +7,7 @@
 
 # dependencies
 /node_modules
-
+/src/app/contacts
 # IDEs and editors
 /.idea
 .project
