@@ -7,7 +7,7 @@
     "desarrollo": "node index.js",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "postinstall": "ng build"
+    "postinstall": "npm run build"
   },
   "author": "Luciano Yabra",
   "license": "MIT",
