@@ -15,7 +15,7 @@ export class WebsocketService {
   readonly uri = "/";
 
   constructor() {
-    this.socket = io(this.uri);
+    //this.socket = io(this.uri);
    }
 
   listen(eventName: string){
