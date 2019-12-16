@@ -97,8 +97,8 @@ export class UserEditComponent implements OnInit {
           }
         }
       }
-      xhr.open('POST',url, true);
-      xhr.setRequestHeader('Authorization',token);
+      xhr.open('POST', url, true);
+      xhr.setRequestHeader('Authorization', token);
       xhr.send(formData);
     });
   }
