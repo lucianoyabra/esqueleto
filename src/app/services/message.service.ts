@@ -12,6 +12,6 @@ export class MessageService {
   }
 
   sendMessage(body) {
-    return this._http.post( '/formulario', body);
+    return this._http.post( '/formulario', body).pipe(res=>res);
     }
 }

@@ -59,10 +59,13 @@ export class AppComponent implements OnInit {
 
 
   public contactForm(form) {
-    this._messageService.sendMessage(form).subscribe(() => {
-    alert('todo ok');
+    this._messageService.sendMessage(form).subscribe(
+      response => {
+        console.log(response);
+      },error => {
+        console.log(error);
     });
-    }
+  }
 
   public mostrarOcultar(){
 
