@@ -3,7 +3,8 @@
 var express = require('express');
 var bodyparser = require('body-parser');
 // Create link to Angular build directory
-
+const nodemailer = require("nodemailer");
+const configMensaje = require("./configMensaje");
 
 var app = express();
 var distDir = __dirname + "/dist/";
@@ -30,8 +31,6 @@ app.use((req, res, next) => {
     next();
 });
 
-
-
 // rutas base
 app.use('/api',user_routes);
 app.use('/api',table_routes);
@@ -43,6 +42,9 @@ app.use('/api',salon_routes);
     res.status(200).send({message: 'bienvenido al curso spotify'});
 })
 */
-
+app.post('/formulario', (req, res) => {
+  configMensaje(req.body);
+  res.status(200).send();
+ })
 
 module.exports = app;

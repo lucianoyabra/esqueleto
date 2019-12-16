@@ -4,6 +4,7 @@ import { User } from './models/user';
 import { GLOBAL } from './services/global';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { WebsocketService } from './socket/websocket.service';
+import { MessageService } from './services/message.service';
 
 @Component({
   selector: 'app-root',
@@ -26,7 +27,8 @@ export class AppComponent implements OnInit {
   constructor(private _userService: UserService,
     private _route: ActivatedRoute,
     private _router: Router,
-    private webSocketService: WebsocketService)
+    private webSocketService: WebsocketService,
+    private _messageService: MessageService)
     {
     this.user =  new User('','','','','','ROLE_USER','');
     this.user_register =  new User('','','','','','ROLE_USER','');
@@ -54,6 +56,13 @@ export class AppComponent implements OnInit {
     */
 
   }
+
+
+  public contactForm(form) {
+    this._messageService.sendMessage(form).subscribe(() => {
+    alert('todo ok');
+    });
+    }
 
   public mostrarOcultar(){
 

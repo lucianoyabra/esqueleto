@@ -21,6 +21,7 @@ import { MatListModule } from '@angular/material/list';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { SalonAddComponent } from './components/salon-add/salon-add.component';
 import { SalonDetailComponent } from './components/salon-detail/salon-detail.component';
+import { MessageService } from './services/message.service';
 
 
 @NgModule({
@@ -49,7 +50,7 @@ import { SalonDetailComponent } from './components/salon-detail/salon-detail.com
     MatListModule,
     DragDropModule
   ],
-  providers: [{provide: APP_BASE_HREF, useValue: '/'}],
+  providers: [{provide: APP_BASE_HREF, useValue: '/'}, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
