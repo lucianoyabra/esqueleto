@@ -2,11 +2,11 @@ const nodemailer = require("nodemailer");
 
 module.exports = (formulario) => {
  var transporter = nodemailer.createTransport({
- //service: "gmail",
- port: 465,
- secure: false,
- port: 25,
- host: "smtp.gmail.com",
+ service: "gmail",
+ // port: 465,
+ // secure: false,
+ // port: 25,
+ // host: "smtp.gmail.com",
  auth: {
     user: "lyrswebdesign@gmail.com", // Cambialo por tu email
     pass: "mallorca2508" // Cambialo por tu password
