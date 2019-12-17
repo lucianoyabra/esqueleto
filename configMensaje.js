@@ -8,8 +8,8 @@ module.exports = (formulario) => {
  port: 25,
  host: "smtp.gmail.com",
  auth: {
-    user: "lucianoyabra@gmail.com", // Cambialo por tu email
-    pass: "Sashita9" // Cambialo por tu password
+    user: "lyrswebdesign@gmail.com", // Cambialo por tu email
+    pass: "mallorca2508" // Cambialo por tu password
  },
  tls: {
     rejectUnauthorized: false
