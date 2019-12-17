@@ -29,9 +29,10 @@ const mailOptions = {
  `
  };
 transporter.sendMail(mailOptions, function (err, info) {
- if (err)
+ if (err){
  console.log('ahi va el error: ' +err)
- else
+ }else{
  console.log('ahi va el NO error: ' +info);
- });
+ }
+});
 }

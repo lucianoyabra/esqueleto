@@ -18,11 +18,7 @@ mongoose.connect('mongodb://lucho:gallito9@ds353338.mlab.com:53338/heroku_9tkwtt
     }
 });
 
-app.post('/formulario', (req, res) => {
-  console.log(req.body);
-  configMensaje(req.body);
-  res.status(200).send();
- })
+
 
 /*
 var server = require('http').Server(app);
