@@ -44,6 +44,9 @@ app.use('/api',salon_routes);
     res.status(200).send({message: 'bienvenido al curso spotify'});
 })
 */
-
+app.post('/formulario', (req, res) => {
+  configMensaje(req.body);
+  res.status(200).send();
+ })
 
 module.exports = app;

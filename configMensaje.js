@@ -16,7 +16,7 @@ module.exports = (formulario) => {
 
 
 const mailOptions = {
- from: `”${formulario.nombre} ” <${formulario.email}>`,
+ from: "web",
  to: "luchoyabra@hotmail.com", // Cambia esta parte por el destinatario
  subject: formulario.asunto,
  html: `
@@ -25,11 +25,13 @@ const mailOptions = {
  <strong>Mensaje:</strong> ${formulario.mensaje}
  `
  };
+console.log('Mail options: ' + mailOptions);
 transporter.sendMail(mailOptions, function (err, info) {
  if (err){
  console.log('ahi va el error: ' +err)
  }else{
  console.log('ahi va el NO error: ' +info);
+
  }
 });
 }
