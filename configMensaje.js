@@ -10,10 +10,7 @@ module.exports = (formulario) => {
  auth: {
     user: "lyrswebdesign@gmail.com", // Cambialo por tu email
     pass: "mallorca2508" // Cambialo por tu password
- },
- tls: {
-    rejectUnauthorized: false
-}
+ }
  });
 
 

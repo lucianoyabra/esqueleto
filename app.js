@@ -31,11 +31,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.post('/formulario', (req, res) => {
-  console.log(req.body);
-  configMensaje(req.body);
-  res.status(200).send();
- })
+
 
 // rutas base
 app.use('/api',user_routes);

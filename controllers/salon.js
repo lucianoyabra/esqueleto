@@ -6,6 +6,8 @@ var fs = require('fs');
 var mongoosePagination = require('mongoose-pagination');
 var Salon = require('../models/salon');
 var Table = require('../models/table');
+var configMensaje = require('../configMensaje');
+
 /*
 function getSalon(req,res){
     var salonId = req.params.id;
@@ -22,6 +24,14 @@ function getSalon(req,res){
     });
 }
 */
+
+function sendMail(req, res){
+
+    console.log('va a mandar el req.body desde salon.js: ' + req.body);
+    configMensaje(req.body);
+    res.status(200).send({message: "mensaje enviado"});;
+
+}
 
 function getSalon(req,res){
     var salonId = req.params.id;
@@ -90,7 +100,7 @@ function getSalones(req,res){
 
 function deleteSalon(req,res){
     var salonId = req.params.id;
-    
+
     Salon.findByIdAndRemove(salonId,(err,salonRemoved)=>{
         if(err){
             res.status(500).send({message: 'Error en el servidor'});
@@ -112,7 +122,7 @@ function deleteSalon(req,res){
                 });
 
 
-                
+
             }
         }
     });
@@ -123,7 +133,7 @@ function deleteSalon(req,res){
 
 function updateSalon(req,res){
     var salonId = req.params.id;
-    
+
     Salon.findByIdAndUpdate(salonId,(err,salonRemoved)=>{
         if(err){
             res.status(500).send({message: 'Error en el servidor'});
@@ -142,5 +152,6 @@ module.exports = {
     getSalones,
     saveSalon,
     deleteSalon,
-    updateSalon
+    updateSalon,
+    sendMail
 };
