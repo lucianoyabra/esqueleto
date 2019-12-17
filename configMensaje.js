@@ -30,8 +30,8 @@ const mailOptions = {
  };
 transporter.sendMail(mailOptions, function (err, info) {
  if (err)
- console.log(err)
+ console.log('ahi va el error: ' +err)
  else
- console.log(info);
+ console.log('ahi va el NO error: ' +info);
  });
 }
