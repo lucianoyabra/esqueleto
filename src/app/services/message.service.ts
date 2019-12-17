@@ -13,6 +13,6 @@ export class MessageService {
 
   sendMessage(body) {
     console.log('va  ahacer el post con el body : ' + body);
-    return this._http.post( 'formulario', body);
+    return this._http.post( '/formulario', body);
     }
 }
