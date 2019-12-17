@@ -61,9 +61,9 @@ export class AppComponent implements OnInit {
   public contactForm(form) {
     this._messageService.sendMessage(form).subscribe(
       response => {
-        console.log(response);
+        console.log('ahi va la Response:' + response);
       },error => {
-        console.log(error);
+        console.log('ahi va el Error:' + error);
     });
   }
 

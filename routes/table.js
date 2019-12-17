@@ -17,5 +17,4 @@ api.put('/table/:id', md_auth.ensureAuth  , TableController.updateTable);
 api.delete('/table/:id?', md_auth.ensureAuth  , TableController.deleteTable);
 
 
-
 module.exports = api;
