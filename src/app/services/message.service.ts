@@ -12,6 +12,7 @@ export class MessageService {
   }
 
   sendMessage(body) {
-    return this._http.post( 'formulario', body).pipe(res => res);
+    console.log('va  ahacer el post con el body : ' + body);
+    return this._http.post( 'formulario', body);
     }
 }
