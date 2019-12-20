@@ -17,7 +17,7 @@ var user_routes = require('./routes/user');
 var salon_routes = require('./routes/salon');
 
 const cors = require("cors");
-app.use(cors());
+app.use(cors({origin:"*"}));
 app.use(bodyparser.urlencoded({extended:false}));
 app.use(bodyparser.json());
 

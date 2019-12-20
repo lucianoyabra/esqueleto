@@ -2,10 +2,12 @@ const nodemailer = require("nodemailer");
 
 module.exports = (formulario) => {
   var transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
     auth: {
-           user: 'youremail@address.com',
-           pass: 'yourpassword'
+           user: 'lucianoyabra@gmail.com',
+           pass: 'Sashita9'
        }
    });
 
