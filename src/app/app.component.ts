@@ -9,7 +9,7 @@ import { MessageService } from './services/message.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  providers: [UserService]
+  providers: [UserService, MessageService]
 
 })
 export class AppComponent implements OnInit {
