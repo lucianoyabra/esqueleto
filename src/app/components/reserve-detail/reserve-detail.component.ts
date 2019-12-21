@@ -39,17 +39,24 @@ export class ReserveDetailComponent implements OnInit {
       this.identity = this._userService.getIdentity();
       this.token = this._userService.getToken();
       this.url = GLOBAL.url;
-      this.socket = io.connect('http://localhost:3000');
+
+      // this.socket = io.connect('http://localhost:3000');
       // this.reserve = new Reserve('','','',null,'',null);
 
    }
 
   ngOnInit() {
+
+    this._webSocketService.listen('new reserve found').subscribe((data) => {
+      this.getReserves();
+    });
+
     console.log('reserve-add.component.ts cargado');
-     this.socket.on('new reserve found', (data: any) =>
+     /*this.socket.on('new reserve found', (data: any) =>
     {
        this.getReserves();
      });
+     */
     this.getReserves();
 
 
