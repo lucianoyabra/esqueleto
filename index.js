@@ -20,7 +20,7 @@ mongoose.connect('mongodb://lucho:gallito9@ds353338.mlab.com:53338/heroku_9tkwtt
 
 
 
-/*
+
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
@@ -42,4 +42,4 @@ var portSocket = process.env.PORT || 3000;
 server.listen(portSocket,()=>{
   console.log('socket io server is listening on port ' + portSocket);
 });
-*/
+
