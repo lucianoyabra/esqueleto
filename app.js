@@ -45,38 +45,15 @@ app.use('/api',salon_routes);
 })
 */
 app.post('/formulario', (req, res) => {
-  console.log('paso por el app.js');
-  sendMail(req.body);
+  console.log('paso por el app.js POST');
+  configMensaje.sendMail(req.body);
   res.status(200).send();
  });
 
-async function sendMail(body){
-  let transporter = nodemailer.createTransport({
-    host:"smtp.gmail.com",
-    port:587,
-    secure:false,
-    auth:{
-      user: "lucianoyabra@gmail.com",
-      pass: "Sashita9"
-    }
-  });
-
-
-let mailOptions = {
-  from: 'lyrswebdesign@gmail.com', // sender address
-  to: 'lyrswebdesign@gmail.com', // list of receivers
-  subject: 'Subject of your email', // Subject line
-  html: '<p>Your html here</p>'// plain text body
-};
-
-await transporter.sendMail(mailOptions,function (err, info) {
-  if (err){
-  console.log('ahi va el error: ' +err)
-  }else{
-  console.log('ahi va el NO error: ' +info);
-
-  }
+ app.get('/formulario', (req, res) => {
+  console.log('paso por el app.js GET');
+  configMensaje.sendMail(req.body);
+  res.status(200).send();
  });
 
-}
 module.exports = app;
