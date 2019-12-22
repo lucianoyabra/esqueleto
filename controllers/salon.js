@@ -28,7 +28,7 @@ function getSalon(req,res){
 function sendMail(req, res){
 
     console.log('va a mandar el req.body desde salon.js: ' + req.body);
-    configMensaje(req.body);
+    configMensaje.sendMail(req.body);
     res.status(200).send({message: "mensaje enviado"});;
 
 }

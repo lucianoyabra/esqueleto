@@ -15,6 +15,6 @@ export class MessageService {
     let params = JSON.stringify(body);
     console.log('luego de json.stringify' + params);
     console.log('va  ahacer el post con el body : ' + body);
-    return this._http.post('/formulario', body);
+    return this._http.post(this.url + 'formulario', body);
     }
 }

@@ -43,7 +43,7 @@ app.use('/api',salon_routes);
 /*app.get('/pruebas', function(req,res){
     res.status(200).send({message: 'bienvenido al curso spotify'});
 })
-*/
+
 app.post('/formulario', (req, res) => {
   console.log('paso por el app.js POST');
   configMensaje.sendMail(req.body);
@@ -55,5 +55,5 @@ app.post('/formulario', (req, res) => {
   configMensaje.sendMail(req.body);
   res.status(200).send();
  });
-
+*/
 module.exports = app;
