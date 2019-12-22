@@ -44,7 +44,7 @@ app.use('/api',salon_routes);
     res.status(200).send({message: 'bienvenido al curso spotify'});
 })
 */
-app.post('/api/formulario', (req, res) => {
+app.post('/formulario', (req, res) => {
   console.log('paso por el app.js');
   sendMail(req.body);
   res.status(200).send();
