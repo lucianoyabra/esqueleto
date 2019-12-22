@@ -45,10 +45,10 @@ app.use('/api',salon_routes);
 })
 */
 app.post('/api/formulario', (req, res) => {
-  sendMail(req.body);
   console.log('paso por el app.js');
+  sendMail(req.body);
   res.status(200).send();
- })
+ });
 
 async function sendMail(body){
   let transporter = nodemailer.createTransport({
@@ -69,7 +69,7 @@ let mailOptions = {
   html: '<p>Your html here</p>'// plain text body
 };
 
-let info = await transporter.sendMail(mailOptions,function (err, info) {
+await transporter.sendMail(mailOptions,function (err, info) {
   if (err){
   console.log('ahi va el error: ' +err)
   }else{
@@ -77,8 +77,6 @@ let info = await transporter.sendMail(mailOptions,function (err, info) {
 
   }
  });
-
- callback(info);
 
 }
 module.exports = app;
