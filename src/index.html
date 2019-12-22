@@ -75,5 +75,23 @@
   <!-- Custom js -->
   <script src="assets/js/custom.js"></script>
 
+
+<?php
+if (isset($_POST['action'])) {
+    switch ($_POST['action']) {
+        case 'mailPhp':
+            insert();
+            break;
+    }
+}
+
+function mailPhp() {
+    echo "The select function is called.";
+    exit;
+}
+
+?>
+
+
   </body>
 </html>
