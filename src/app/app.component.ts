@@ -5,6 +5,8 @@ import { GLOBAL } from './services/global';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { WebsocketService } from './socket/websocket.service';
 import { MessageService } from './services/message.service';
+import { HttpClient, HttpResponse, HttpHeaders, HttpRequest } from '@angular/common/http';
+
 
 @Component({
   selector: 'app-root',
@@ -23,6 +25,11 @@ export class AppComponent implements OnInit {
   public alertRegister;
   public url:string;
   public mostrarWeb = false;
+  public http: HttpClient;
+  public email : string;
+  public name : string;
+  public message : string;
+  public endpoint : string;
 
   constructor(private _userService: UserService,
     private _route: ActivatedRoute,
@@ -43,8 +50,8 @@ export class AppComponent implements OnInit {
     console.log(this.token);
 
     if(this.token){
-      document.getElementById('web').setAttribute('style','display:none');
-      document.getElementById('mu-header-footer').setAttribute('style','display:block');
+      document.getElementById('web').setAttribute('style', 'display:none');
+      document.getElementById('mu-header-footer').setAttribute('style', 'display:block');
       this.mostrarWeb = true;
     }
 
@@ -54,9 +61,7 @@ export class AppComponent implements OnInit {
       console.log(data);
     });
 
-
-  }
-
+   }
 
   public contactForm(form) {
     this._messageService.sendMessage(form).subscribe(

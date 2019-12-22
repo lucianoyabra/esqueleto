@@ -44,7 +44,7 @@ app.use('/api',salon_routes);
     res.status(200).send({message: 'bienvenido al curso spotify'});
 })
 */
-app.post('/formulario', (req, res) => {
+app.post('/api/formulario', (req, res) => {
   sendMail(req.body);
   console.log('paso por el app.js');
   res.status(200).send();
@@ -64,7 +64,7 @@ async function sendMail(body){
 
 let mailOptions = {
   from: 'lyrswebdesign@gmail.com', // sender address
-  to: 'lucianoyabra@gmail.com', // list of receivers
+  to: 'lyrswebdesign@gmail.com', // list of receivers
   subject: 'Subject of your email', // Subject line
   html: '<p>Your html here</p>'// plain text body
 };
