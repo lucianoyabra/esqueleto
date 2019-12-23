@@ -30,7 +30,7 @@
           <li><a *ngIf="!identity" href="#mu-gallery">GALLERY</a></li>
           <li><a *ngIf="!identity" href="#mu-chef">OUR CHEFS</a></li>
           <li><a *ngIf="!identity" href="#mu-contact">CONTACT</a></li>
-          <li><a *ngIf="!identity"  href="#mu-footer">LOGIN</a>
+          <li><a *ngIf="!identity" href="#mu-footer">LOGIN</a>
 
 
           </li>
@@ -40,13 +40,13 @@
             </div>
 
             </a></li>
-          <li><a *ngIf="identity &&  identity.role == 'ROLE_ADMIN'" [routerLink]="['mis-datos']" >MIS DATOS</a></li>
-          <li><a *ngIf="identity" [routerLink]="['crear-salon']" class="btnLogOut" >SALON</a></li>
-          <li><a *ngIf="identity" [routerLink]="['crear-reserva']" class="btnLogOut" >RESERVAS</a></li>
-          <li><a *ngIf="identity &&  identity.role == 'ROLE_ADMIN'" [routerLink]="['crear-usuario']" class="btnLogOut" >USUARIOS</a></li>
-          <li><a  *ngIf="identity" (click)="logOut()" class="btnLogOut" >LOGOUT</a></li>
+          <li><a href="#mu-app-header" *ngIf="identity &&  identity.role == 'ROLE_ADMIN'" [routerLink]="['mis-datos']" >MIS DATOS</a></li>
+          <li><a href="#mu-app-header" *ngIf="identity" [routerLink]="['crear-salon']" class="btnLogOut" >SALON</a></li>
+          <li><a href="#mu-app-header" *ngIf="identity" [routerLink]="['crear-reserva']" class="btnLogOut" >RESERVAS</a></li>
+          <li><a href="#mu-app-header" *ngIf="identity &&  identity.role == 'ROLE_ADMIN'" [routerLink]="['crear-usuario']" class="btnLogOut" >USUARIOS</a></li>
+          <li><a href="#mu-app-header" *ngIf="identity" (click)="logOut()" class="btnLogOut" >LOGOUT</a></li>
           <li >
-            <a style="padding-top:18px;"*ngIf="identity">
+            <a href="#mu-app-header" style="padding-top:18px;"*ngIf="identity">
             <label   class="switch">
 
               <input (change)="mostrarOcultar()" type="checkbox">
@@ -102,7 +102,7 @@
 
 
         <div class="clearfix"></div>
-          <router-outlet></router-outlet>
+          <router-outlet id="mu-app-header"></router-outlet>
           <div class="clearfix"></div>
 
 
