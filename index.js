@@ -22,9 +22,6 @@ mongoose.connect('mongodb://lucho:gallito9@ds353338.mlab.com:53338/heroku_9tkwtt
     }
 });
 
-
-
-
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
