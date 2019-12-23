@@ -45,13 +45,7 @@ app.use('/api',salon_routes);
 */
 app.post('/formulario', (req, res) => {
   console.log('paso por el app.js POST');
-  configMensaje.sendMail(req.body);
-  res.status(200).send();
- });
-
- app.get('/formulario', (req, res) => {
-  console.log('paso por el app.js GET');
-  configMensaje.sendMail(req.body);
+  configMensaje(req.body);
   res.status(200).send();
  });
 
