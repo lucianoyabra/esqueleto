@@ -7,7 +7,7 @@ var mongoosePagination = require('mongoose-pagination');
 var Salon = require('../models/salon');
 var Table = require('../models/table');
 var configMensaje = require('../configMensaje');
-
+var nodemailer = require("nodemailer");
 /*
 function getSalon(req,res){
     var salonId = req.params.id;
