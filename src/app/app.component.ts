@@ -60,15 +60,14 @@ export class AppComponent implements OnInit {
     this.webSocketService.listen('message').subscribe((data) => {
       console.log(data);
     });
-
    }
 
   public contactForm(form) {
     this._messageService.sendMessage(form).subscribe(
       response => {
-        console.log('ahi va la Response:' + response);
-      },error => {
-        console.log('ahi va el Error:' + error);
+        console.log('ahi va la Response:' + response[0]);
+      }, error => {
+        console.log('ahi va el Error:' + error[0]);
     });
   }
 
