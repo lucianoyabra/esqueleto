@@ -1,8 +1,13 @@
-const nodemailer = require("nodemailer");
-
+const nodemailer = require('nodemailer');
 module.exports = (formulario) => {
+ var transporter = nodemailer.createTransport({
+ service: "gmail",
+ auth: {
+ user: 'lucianoyabra@gmail.com', // Cambialo por tu email
+ pass: 'Sashita9' // Cambialo por tu password
+ }
 
-  var transporter = nodemailer.createTransport({
+/*
     host:"smtp.gmail.com",
     port:587,
     secure:false,
@@ -11,22 +16,23 @@ module.exports = (formulario) => {
       pass: "Sashita9"
     }
   });
+*/
 
-
-let mailOptions = {
-  from: `lyrswebdesign@gmail.com`, // sender address
-  to: `lyrswebdesign@gmail.com`, // list of receivers
-  subject: 'Subject of your email', // Subject line
-  html: '<p>Your html here</p>'// plain text body
-};
-
-transporter.sendMail(mailOptions,function (err, info) {
-  if (err){
-  console.log('ahi va el error: ' +err);
-  }else{
-  console.log('ahi va el NO error: ' +info);
-
-  }
  });
-
+const mailOptions = {
+ from: `”${formulario.nombre} ” <${formulario.email}>`,
+ to: 'luchoyabra@hotmail.com', // Cambia esta parte por el destinatario
+ subject: formulario.asunto,
+ html: `
+ <strong>Nombre:</strong> ${formulario.nombre} <br/>
+ <strong>E-mail:</strong> ${formulario.email} <br/>
+ <strong>Mensaje:</strong> ${formulario.mensaje}
+ `
+ };
+transporter.sendMail(mailOptions, function (err, info) {
+ if (err)
+ console.log(err)
+ else
+ console.log(info);
+ });
 }
