@@ -178,6 +178,5 @@ module.exports = {
     getSalones,
     saveSalon,
     deleteSalon,
-    updateSalon,
-    sendMail
+    updateSalon
 };
