@@ -1,7 +1,8 @@
 const nodemailer = require("nodemailer");
 
-async function sendMail(body){
-  let transporter = nodemailer.createTransport({
+module.exports = (formulario) => {
+
+  var transporter = nodemailer.createTransport({
     host:"smtp.gmail.com",
     port:587,
     secure:false,
@@ -13,23 +14,19 @@ async function sendMail(body){
 
 
 let mailOptions = {
-  from: 'lyrswebdesign@gmail.com', // sender address
-  to: 'lyrswebdesign@gmail.com', // list of receivers
+  from: `lyrswebdesign@gmail.com`, // sender address
+  to: `lyrswebdesign@gmail.com`, // list of receivers
   subject: 'Subject of your email', // Subject line
   html: '<p>Your html here</p>'// plain text body
 };
 
 transporter.sendMail(mailOptions,function (err, info) {
   if (err){
-  console.log('ahi va el error: ' +err)
+  console.log('ahi va el error: ' +err);
   }else{
   console.log('ahi va el NO error: ' +info);
 
   }
  });
 
-}
-
-module.exports = {
-  sendMail
 }
