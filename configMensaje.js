@@ -19,7 +19,7 @@ let mailOptions = {
   html: '<p>Your html here</p>'// plain text body
 };
 
-await transporter.sendMail(mailOptions,function (err, info) {
+transporter.sendMail(mailOptions,function (err, info) {
   if (err){
   console.log('ahi va el error: ' +err)
   }else{
