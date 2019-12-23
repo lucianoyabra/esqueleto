@@ -28,10 +28,35 @@ function getSalon(req,res){
 function sendMail(req, res){
 
     console.log('va a mandar el req.body desde salon.js: ' + req.body);
-    configMensaje.sendMail(req.body);
-    res.status(200).send({message: "mensaje enviado"});;
+    mail(req.body);
+    res.status(200).send({message: "mensaje enviado"});
 
 }
+
+function mail(user){
+  const sendMail = (user, callback) => {
+    const transporter = nodemailer.createTransport({
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false,
+      auth: {
+        user: "lucianoyabra@gmail.com",
+        pass: "Sashita9"
+      }
+    });
+  }
+
+  const mailOptions = {
+    from: `"Lucho", "luchoyabra@hotmail.com"`,
+    to: `luchoyabra@hotmail.com`,
+    subject: "Asunto del mail",
+    html: "<h1>And here is the place for HTML</h1>"
+  };
+
+  transporter.sendMail(mailOptions, callback);
+}
+
+
 
 function getSalon(req,res){
     var salonId = req.params.id;
