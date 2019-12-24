@@ -24,6 +24,6 @@ export class MessageService {
     console.log('luego de json.stringify' + params);
     console.log('va  ahacer el post con el body : ' + body);
     */
-    return this._http.post('/formulario', body); // , {headers:headers}).pipe(res=>res);
+    return this._http.post('formulario', body); // , {headers:headers}).pipe(res=>res);
     }
 }
