@@ -16,12 +16,14 @@ export class MessageService {
   }
 
   sendMessage(body) {
+    /*
     let params = JSON.stringify(body);
     let headers = new HttpHeaders({
       'content-type':'application/json'
     });
     console.log('luego de json.stringify' + params);
     console.log('va  ahacer el post con el body : ' + body);
-    return this._http.post('/formulario', params, {headers:headers}).pipe(res=>res);
+    */
+    return this._http.post('/formulario', body); // , {headers:headers}).pipe(res=>res);
     }
 }
