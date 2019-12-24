@@ -50,7 +50,7 @@ import { MessageService } from './services/message.service';
     MatListModule,
     DragDropModule
   ],
-  providers: [{provide: APP_BASE_HREF, useValue: '/'}],
+  providers: [{provide: APP_BASE_HREF, useValue: '/'}, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
