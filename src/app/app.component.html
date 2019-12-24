@@ -5,7 +5,7 @@
     <div class="container">
       <div class="navbar-header">
         <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <button id="boton-collapse" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
@@ -40,11 +40,11 @@
             </div>
 
             </a></li>
-          <li><a  *ngIf="identity &&  identity.role == 'ROLE_ADMIN'" [routerLink]="['mis-datos']" >MIS DATOS</a></li>
-          <li><a  *ngIf="identity" [routerLink]="['crear-salon']" class="btnLogOut" >SALON</a></li>
-          <li><a  *ngIf="identity" [routerLink]="['crear-reserva']" class="btnLogOut" >RESERVAS</a></li>
-          <li><a  *ngIf="identity &&  identity.role == 'ROLE_ADMIN'" [routerLink]="['crear-usuario']" class="btnLogOut" >USUARIOS</a></li>
-          <li><a  *ngIf="identity" (click)="logOut()" class="btnLogOut" >LOGOUT</a></li>
+          <li><a (click)="close()" *ngIf="identity &&  identity.role == 'ROLE_ADMIN'" [routerLink]="['mis-datos']" >MIS DATOS</a></li>
+          <li><a (click)="close()" *ngIf="identity" [routerLink]="['crear-salon']" class="btnLogOut" >SALON</a></li>
+          <li><a (click)="close()" *ngIf="identity" [routerLink]="['crear-reserva']" class="btnLogOut" >RESERVAS</a></li>
+          <li><a (click)="close()" *ngIf="identity &&  identity.role == 'ROLE_ADMIN'" [routerLink]="['crear-usuario']" class="btnLogOut" >USUARIOS</a></li>
+          <li><a (click)="close()" *ngIf="identity" (click)="logOut()" class="btnLogOut" >LOGOUT</a></li>
           <li >
             <a  style="padding-top:18px;"*ngIf="identity">
             <label   class="switch">

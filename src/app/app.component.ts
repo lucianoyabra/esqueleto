@@ -62,6 +62,10 @@ export class AppComponent implements OnInit {
     });
    }
 
+  public close() {
+    document.getElementById('boton-collapse').setAttribute('aria-expanded', 'false');
+  }
+
   public contactForm(form) {
     this._messageService.sendMessage(form).subscribe(
       response => {
