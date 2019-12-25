@@ -17,7 +17,7 @@ export class MessageService {
 
 
   sendMessageJet(body){
-  const mailjet = require ('node-mailjet')
+  const mailjet = require('node-mailjet')
   .connect('4cbd5249f600247cbc93feb7ea46f022', '53de9b997c3a99b37cc1911a2d3ec44f')
   const request = mailjet
   .post("send", {'version': 'v3.1'})
