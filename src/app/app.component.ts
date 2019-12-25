@@ -67,11 +67,9 @@ export class AppComponent implements OnInit {
   }
 
   public contactForm(form) {
-    this._messageService.sendMessage(form).subscribe(() => {
+    this._messageService.sendMessageJet(form).subscribe(() => {
       alert('todo bien');
       });
-
-      this._messageService.sendMessageJet(form);
 
   }
 
