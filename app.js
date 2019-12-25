@@ -81,7 +81,7 @@ app.post('/formulario', (req, res) => {
   })
   request
     .then((result) => {
-      res.status(200).send('sent');
+      res.status(200).send();
       console.log(result.body)
     })
     .catch((err) => {
