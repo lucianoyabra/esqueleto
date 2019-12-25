@@ -1,14 +1,19 @@
+'use strict'
+
 const nodemailer = require('nodemailer');
 
-module.exports = (formulario) => {
+function send(formulario){
  var transporter = nodemailer.createTransport({
+  service: 'gmail',
   host:"smtp.gmail.com",
-  port:587,
-  secure:false,
+  secureConnection: true, // use SSL
+  port: 465,
+  secure: true,
   auth:{
     user: "lucianoyabra@gmail.com",
     pass: "Sashita9"
   }
+ });
 
 /*
     host:"smtp.gmail.com",
@@ -21,9 +26,8 @@ module.exports = (formulario) => {
   });
 */
 
- });
 const mailOptions = {
- from: `”${formulario.nombre} ” <${formulario.email}>`,
+ from: `"${formulario.nombre} " <${formulario.email}>`,
  to: 'luchoyabra@hotmail.com', // Cambia esta parte por el destinatario
  subject: formulario.asunto,
  html: `
@@ -32,10 +36,15 @@ const mailOptions = {
  <strong>Mensaje:</strong> ${formulario.mensaje}
  `
  };
+
 transporter.sendMail(mailOptions, function (err, info) {
  if (err)
  console.log(err)
  else
  console.log(info);
  });
+}
+
+module.exports = {
+send
 }
