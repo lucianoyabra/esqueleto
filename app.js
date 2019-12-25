@@ -44,8 +44,6 @@ app.use('/api',salon_routes);
 })
 */
 app.post('/formulario', (req, res) => {
-  console.log('paso por el app.js POST');
-  alert('Ahi va a mandar el mail');
   configMensaje.send(req.body);
   res.status(200).send();
  });
