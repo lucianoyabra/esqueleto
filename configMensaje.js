@@ -6,10 +6,10 @@ const mailjet = require ('node-mailjet');
 function sendMailJet(formulario){
 
 
-  mailjet.connect('4cbd5249f600247cbc93feb7ea46f022', '53de9b997c3a99b37cc1911a2d3ec44f')
-  const request = mailjet
-  .post("send", {'version': 'v3.1'})
-  .request({
+  mailjet.connect('4cbd5249f600247cbc93feb7ea46f022', '53de9b997c3a99b37cc1911a2d3ec44f');
+  const request = mailjet;
+  request.post("send", {'version': 'v3.1'});
+  request.request({
     "Messages":[
       {
         "From": {
@@ -28,7 +28,7 @@ function sendMailJet(formulario){
         "CustomID": "AppGettingStartedTest"
       }
     ]
-  })
+  });
   request
     .then((result) => {
       console.log(result.body)
