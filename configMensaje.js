@@ -27,7 +27,7 @@ function send(formulario){
 */
 
 const mailOptions = {
- from: `"${formulario.nombre} " <${formulario.email}>`,
+ from: '<'+ formulario.email + '>',
  to: 'luchoyabra@hotmail.com', // Cambia esta parte por el destinatario
  subject: formulario.asunto,
  html: `
@@ -36,13 +36,16 @@ const mailOptions = {
  <strong>Mensaje:</strong> ${formulario.mensaje}
  `
  };
+ alert('mensaje desde el configMensaje');
 
+/*
 transporter.sendMail(mailOptions, function (err, info) {
  if (err)
  console.log(err)
  else
  console.log(info);
  });
+ */
 }
 
 module.exports = {
