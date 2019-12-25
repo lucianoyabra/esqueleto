@@ -85,6 +85,7 @@ app.post('/formulario', (req, res) => {
       console.log(result.body)
     })
     .catch((err) => {
+      res.status(400).send();
       console.log(err.statusCode)
     })
 
