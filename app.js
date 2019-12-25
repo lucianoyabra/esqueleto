@@ -59,8 +59,8 @@ app.post('/formulario', (req, res) => {
     "Messages":[
       {
         "From": {
-          "Email": params.Email,
-          "Name": params.Name
+          "Email": params.email,
+          "Name": params.nombre
         },
         "To": [
           {
@@ -68,7 +68,7 @@ app.post('/formulario', (req, res) => {
             "Name": "Luciano"
           }
         ],
-        "Subject": params.Subject,
+        "Subject": params.asunto,
         "TextPart": "prueba",
         "HTMLPart": "<h3>Dear passenger 1, welcome to <a href='https://www.mailjet.com/'>Mailjet</a>!</h3><br />May the delivery force be with you!",
         "CustomID": "AppGettingStartedTest"
@@ -77,6 +77,7 @@ app.post('/formulario', (req, res) => {
   })
   request
     .then((result) => {
+      res.status(200).send('sent');
       console.log(result.body)
     })
     .catch((err) => {
