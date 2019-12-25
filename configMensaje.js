@@ -4,6 +4,18 @@ const nodemailer = require('nodemailer');
 
 function send(formulario){
  var transporter = nodemailer.createTransport({
+  host:"in-v3.mailjet.com",
+  port:587,
+  auth:{
+    user: "4cbd5249f600247cbc93feb7ea46f022",
+    pass: "53de9b997c3a99b37cc1911a2d3ec44f"
+  }
+
+
+
+ });
+
+/*
   service: 'gmail',
   host:"smtp.gmail.com",
   secureConnection: true, // use SSL
@@ -13,15 +25,14 @@ function send(formulario){
     user: "lucianoyabra@gmail.com",
     pass: "Sashita9"
   }
- });
 
-/*
-    host:"smtp.gmail.com",
+
+
+    host:"in-v3.mailjet.com",
     port:587,
-    secure:false,
     auth:{
-      user: "lucianoyabra@gmail.com",
-      pass: "Sashita9"
+      user: "4cbd5249f600247cbc93feb7ea46f022",
+      pass: "53de9b997c3a99b37cc1911a2d3ec44f"
     }
   });
 */
