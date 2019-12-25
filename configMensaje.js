@@ -36,7 +36,7 @@ const mailOptions = {
  <strong>Mensaje:</strong> ${formulario.mensaje}
  `
  };
- alert('mensaje desde el configMensaje');
+ console.log('mensaje desde el configMensaje');
 
 /*
 transporter.sendMail(mailOptions, function (err, info) {
