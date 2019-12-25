@@ -7,8 +7,8 @@ function send(formulario){
   service: 'gmail',
   host:"smtp.gmail.com",
   secureConnection: true, // use SSL
-  port: 465,
-  secure: true,
+  port: 587,
+  secure: false, // upgrade later with STARTTLS
   auth:{
     user: "lucianoyabra@gmail.com",
     pass: "Sashita9"
