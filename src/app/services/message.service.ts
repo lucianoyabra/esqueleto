@@ -18,13 +18,14 @@ export class MessageService {
   sendMessage(body) {
     /*
     let params = JSON.stringify(body);
+
+    console.log('luego de json.stringify' + params);
+    */
     let headers = new HttpHeaders({
       'content-type':'application/json'
     });
-    console.log('luego de json.stringify' + params);
-    */
     console.log('va  ahacer el post con el body : ' + body);
 
-    return this._http.post('https://peaceful-springs-20903.herokuapp.com/formulario', body); // , {headers:headers}).pipe(res=>res);
+    return this._http.post('https://peaceful-springs-20903.herokuapp.com/formulario', body, {headers:headers}).pipe(res=>res); // , {headers:headers}).pipe(res=>res);
     }
 }
