@@ -69,8 +69,12 @@ app.post('/formulario', (req, res) => {
           }
         ],
         "Subject": params.asunto,
-        "TextPart": "prueba",
-        "HTMLPart": "<h3>Dear passenger 1, welcome to <a href='https://www.mailjet.com/'>Mailjet</a>!</h3><br />May the delivery force be with you!",
+        "TextPart":params.mensaje,
+        "HTMLPart": `
+        <strong>Nombre:</strong> ${params.nombre} <br/>
+        <strong>E-mail:</strong> ${params.email} <br/>
+        <strong>Mensaje:</strong> ${params.mensaje}
+        `,
         "CustomID": "AppGettingStartedTest"
       }
     ]
