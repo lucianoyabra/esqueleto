@@ -50,7 +50,7 @@ app.post('/formulario', (req, res) => {
  });
 
  app.post('/formularioJet',(req,res) => {
-
+  let params = req.body;
   const mailjet = require ('node-mailjet')
   .connect('4cbd5249f600247cbc93feb7ea46f022', '53de9b997c3a99b37cc1911a2d3ec44f')
   const request = mailjet
@@ -59,8 +59,8 @@ app.post('/formulario', (req, res) => {
     "Messages":[
       {
         "From": {
-          "Email": "lucianoyabra@gmail.com",
-          "Name": "Luciano"
+          "Email": params.Email,
+          "Name": params.Name
         },
         "To": [
           {
@@ -68,8 +68,8 @@ app.post('/formulario', (req, res) => {
             "Name": "Luciano"
           }
         ],
-        "Subject": "Greetings from Mailjet.",
-        "TextPart": "My first Mailjet email",
+        "Subject": params.Subject,
+        "TextPart": "prueba",
         "HTMLPart": "<h3>Dear passenger 1, welcome to <a href='https://www.mailjet.com/'>Mailjet</a>!</h3><br />May the delivery force be with you!",
         "CustomID": "AppGettingStartedTest"
       }
