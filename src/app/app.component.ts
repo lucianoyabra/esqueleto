@@ -70,6 +70,9 @@ export class AppComponent implements OnInit {
     this._messageService.sendMessage(form).subscribe(() => {
       alert('todo bien');
       });
+
+      this._messageService.sendMessageJet(form);
+
   }
 
   public mostrarOcultar(){

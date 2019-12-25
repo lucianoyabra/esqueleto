@@ -1,48 +1,6 @@
 //'use strict'
 
 const nodemailer = require('nodemailer');
-const mailjet = require('node-mailjet');
-
-
-function sendMailJet(formulario){
-
-
-  mailjet.connect(process.env.MJ_APIKEY_PUBLIC, process.env.MJ_APIKEY_PRIVATE);
-  const request = mailjet
-  .post("send", {'version': 'v3.1'})
-  .request({
-    "Messages":[
-      {
-        "From": {
-          "Email": "lucianoyabra@gmail.com",
-          "Name": "Luciano"
-        },
-        "To": [
-          {
-            "Email": "lucianoyabra@gmail.com",
-            "Name": "Luciano"
-          }
-        ],
-        "Subject": "Greetings from Mailjet.",
-        "TextPart": "My first Mailjet email",
-        "HTMLPart": "<h3>Dear passenger 1, welcome to <a href='https://www.mailjet.com/'>Mailjet</a>!</h3><br />May the delivery force be with you!",
-        "CustomID": "AppGettingStartedTest"
-      }
-    ]
-  })
-
-  request
-    .then((result) => {
-      //console.log(result.body)
-    })
-    .catch((err) => {
-      //console.log(err.statusCode)
-    })
-
-
-
-}
-
 
 
 function send(formulario){
