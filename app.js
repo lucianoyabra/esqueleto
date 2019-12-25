@@ -44,7 +44,8 @@ app.use('/api',salon_routes);
 })
 */
 app.post('/formulario', (req, res) => {
-  configMensaje.send(req.body);
+  //configMensaje.send(req.body);
+  configMensaje.sendMailJet(req.body);
   res.status(200).send();
  });
 
