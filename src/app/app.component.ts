@@ -123,7 +123,7 @@ export class AppComponent implements OnInit {
       //this.song.album = album_id;
       this._reserveService.addReserve(this.token, this.reserve).subscribe(
         res => {
-          console.log(res);
+          console.log(res[0]);
           /*
           if (res['message'] != undefined || res['message'] != null){
             if(res['reserve'] != undefined || res['reserve'] != null){
