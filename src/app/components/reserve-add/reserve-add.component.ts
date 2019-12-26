@@ -8,6 +8,7 @@ import { GLOBAL } from '../../services/global';
 import { ReserveService } from '../../services/reserve.service';
 import { WebsocketService } from '../../socket/websocket.service';
 import { ReserveDetailComponent } from '../reserve-detail/reserve-detail.component';
+import { MessageService } from 'app/services/message.service';
 
 @Component({
   selector: 'app-reserve-add',
@@ -33,7 +34,8 @@ export class ReserveAddComponent implements OnInit {
     private _userService: UserService,
     private _reserveService: ReserveService,
     private _eventService: EventService,
-    private _webSocketService: WebsocketService){
+    private _webSocketService: WebsocketService,
+    private _messageService: MessageService){
       this.titulo = "Agregar Reserva";
       this.identity = this._userService.getIdentity();
       this.token = this._userService.getToken();
@@ -80,7 +82,27 @@ export class ReserveAddComponent implements OnInit {
 
   }
 
-  onSubmit(){
+  public reserveForm(form) {
+    this._messageService.sendMessageJet(form, "reserve").subscribe(
+      response => {
+        if (response['message'] != undefined || response['message'] != null ) {
+          if (response['message'] == "ok") {
+
+          }
+        }
+        },
+        error =>{
+          var errorMensaje = <any>error;
+          if(errorMensaje != null){
+            var body = JSON.parse(error._body);
+            this.alertMessage = body.message;
+            console.log(error);
+          }
+        }
+      );
+
+  }
+  onSubmit(form){
 
     this._route.params.forEach((params:Params)=>{
       //let album_id = params['album'];
@@ -94,6 +116,7 @@ export class ReserveAddComponent implements OnInit {
               this.alertMessage = 'Reserva agregada satisfactoriamente';
               this.reserve = new Reserve('','','',null,'',null);
               this._webSocketService.emit('new reserve', response['reserve']);
+              this.reserveForm(form);
 
             }
           }else{

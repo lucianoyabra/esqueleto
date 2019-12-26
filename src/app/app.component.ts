@@ -130,9 +130,8 @@ export class AppComponent implements OnInit {
               this.alertMessage = 'Error en el servidor' ;
             }else{
               this.alertMessage = 'Reserva agregada satisfactoriamente';
-              this.webSocketService.emit('new reserve', this.reserve);
               this.reserve = new Reserve('','','',null,'',null);
-
+              this.webSocketService.emit('new reserve', res['reserve']);
 
             }
           }else{
