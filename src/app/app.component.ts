@@ -46,6 +46,7 @@ export class AppComponent implements OnInit {
     {
     this.user =  new User('','','','','','ROLE_USER','');
     this.user_register =  new User('','','','','','ROLE_USER','');
+    this.reserve = new Reserve('','','',null,'', null);
     this.url = GLOBAL.url;
   }
 
