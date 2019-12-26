@@ -122,9 +122,9 @@ export class AppComponent implements OnInit {
       //let album_id = params['album'];
       //this.song.album = album_id;
       this._reserveService.addReserve(this.token, this.reserve).subscribe(
-        response => {
+        res => {
           console.log('ok');
-          /*
+
           if (res['message'] != undefined || res['message'] != null){
             if(res['reserve'] != undefined || res['reserve'] != null){
               this.alertMessage = 'Error en el servidor' ;
@@ -137,7 +137,7 @@ export class AppComponent implements OnInit {
           }else{
             this.reserve = res['reserve'];
             }
-            */
+
 
         },
         error =>{
