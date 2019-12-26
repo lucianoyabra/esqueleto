@@ -7,6 +7,8 @@ import { WebsocketService } from './socket/websocket.service';
 import { MessageService } from './services/message.service';
 import { HttpClient, HttpResponse, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Reserve } from './models/reserve';
+import { ReserveService } from './services/reserve.service';
+import { EventService } from './services/event.service';
 
 
 @Component({
@@ -23,6 +25,7 @@ export class AppComponent implements OnInit {
   public identity;
   public token;
   public errorMessage;
+  public alertMessage:string;
   public alertRegister;
   public url:string;
   public mostrarWeb = false;
@@ -37,7 +40,9 @@ export class AppComponent implements OnInit {
     private _route: ActivatedRoute,
     private _router: Router,
     private webSocketService: WebsocketService,
-    private _messageService: MessageService)
+    private _messageService: MessageService,
+    private _reserveService: ReserveService,
+    private _eventService: EventService)
     {
     this.user =  new User('','','','','','ROLE_USER','');
     this.user_register =  new User('','','','','','ROLE_USER','');
@@ -89,7 +94,35 @@ export class AppComponent implements OnInit {
       response => {
         if (response['message'] != undefined || response['message'] != null ) {
           if (response['message'] == "ok") {
-            alert('todo bien');
+            this._reserveService.addReserve(this.token, this.reserve).subscribe(
+              response=>{
+                if (!response['message']){
+                  if(!response['reserve']){
+                    this.alertMessage = 'Error en el servidor' ;
+                  }else{
+                    this.alertMessage = 'Reserva agregada satisfactoriamente';
+                    this.reserve = new Reserve('','','',null,'',null);
+                    this.webSocketService.emit('new reserve', response['reserve']);
+
+                  }
+                }else{
+                  this.reserve = response['reserve'];
+                  }
+
+              },
+              error =>{
+                var errorMensaje = <any>error;
+                if(errorMensaje != null){
+                  var body = JSON.parse(error._body);
+                  this.alertMessage = body.message;
+                  console.log(error);
+                }
+              }
+            );
+
+
+
+
           }else {
             alert('todo mal');
           }

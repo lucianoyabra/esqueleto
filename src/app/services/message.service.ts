@@ -43,8 +43,10 @@ export class MessageService {
       console.log('va  ahacer el post con el body : ' + body);
       // tslint:disable-next-line: max-line-length
       if(type == "contact") {
+        // tslint:disable-next-line: max-line-length
         return this._http.post('https://peaceful-springs-20903.herokuapp.com/formularioJetContact', body, {headers:headers}).pipe(res=>res); // , {headers:headers}).pipe(res=>res);
       }else {
+        // tslint:disable-next-line: max-line-length
         return this._http.post('https://peaceful-springs-20903.herokuapp.com/formularioJetReserve', body, {headers:headers}).pipe(res=>res); // , {headers:headers}).pipe(res=>res);
       }
 
