@@ -4,6 +4,8 @@
       </div>
     </div>
     <form #reserveForm="ngForm" (submit)="onSubmit(reserveForm.value)" class="mu-reservation-form">
+      <div class="col-md-12">
+        <div class="form-group">
         <p>
           <label>Name</label>
           <input type="text" #name="ngModel" name="name" [(ngModel)]="reserve.name"
@@ -11,6 +13,8 @@
           <span style="color: red;"
           *ngIf="!name.valid && name.touched">Debe ingresar el nombre</span>
         </p>
+        </div>
+      </div>
         <p>
           <label>Email</label>
           <input type="email" #email="ngModel" name="email" [(ngModel)]="reserve.email"
