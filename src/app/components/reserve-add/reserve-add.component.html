@@ -6,29 +6,33 @@
     <form #reserveForm="ngForm" (submit)="onSubmit(reserveForm.value)" class="mu-reservation-form">
       <div class="col-md-12">
         <div class="form-group">
-        <p>
+
           <label>Name</label>
           <input type="text" #name="ngModel" name="name" [(ngModel)]="reserve.name"
           class="form-control" required />
           <span style="color: red;"
           *ngIf="!name.valid && name.touched">Debe ingresar el nombre</span>
-        </p>
+
         </div>
       </div>
-        <p>
+      <div class="col-md-12">
+        <div class="form-group">
           <label>Email</label>
           <input type="email" #email="ngModel" name="email" [(ngModel)]="reserve.email"
           class="form-control" required />
           <span style="color: red;"
           *ngIf="!email.valid && email.touched">Debe ingresar el email</span>
-        </p>
-        <p>
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="form-group">
           <label>Phone</label>
           <input type="text" #phone="ngModel"
           name="phone" [(ngModel)]="reserve.phone"
           class="form-control"  />
-        </p>
-        <p>
+        </div></div>
+        <div class="col-md-12">
+          <div class="form-group">
 
             <label for="exampleFormControlSelect1">Personas</label>
             <select #people="ngModel" name="people" [(ngModel)]="reserve.people" class="form-control" id="exampleFormControlSelect1" required>
@@ -45,23 +49,27 @@
               <option>+10</option>
             </select>
 
-        </p>
-        <p>
+          </div></div>
+          <div class="col-md-12">
+            <div class="form-group">
           <label>Date</label>
           <input type="date" #date="ngModel"
           name="date" [(ngModel)]="reserve.date"
           class="form-control" required />
           <span style="color: red;"
           *ngIf="!date.valid && date.touched">Debe Ingresar la fecha</span>
-        </p>
-        <p>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
           <label>Time</label>
           <input type="time" #time="ngModel"
           name="time" [(ngModel)]="reserve.time"
           class="form-control" required />
           <span style="color: red;"
           *ngIf="!time.valid && time.touched">Debe Ingresar el horario</span>
-        </p>
+        </div>
+          </div>
 
         <button type="submit" class="mu-readmore-btn">Make Reservation</button>
       </form>
