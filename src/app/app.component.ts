@@ -122,18 +122,18 @@ export class AppComponent implements OnInit {
       //let album_id = params['album'];
       //this.song.album = album_id;
       this._reserveService.addReserve(this.token, this.reserve).subscribe(
-        response=>{
-          if (!response['message']){
-            if(!response['reserve']){
+        res => {
+          if (res['message'] != undefined || res['message'] != null){
+            if(res['reserve'] != undefined || res['reserve'] != null){
               this.alertMessage = 'Error en el servidor' ;
             }else{
               this.alertMessage = 'Reserva agregada satisfactoriamente';
               this.reserve = new Reserve('','','',null,'',null);
-              this.webSocketService.emit('new reserve', response['reserve']);
+              this.webSocketService.emit('new reserve', res['reserve']);
 
             }
           }else{
-            this.reserve = response['reserve'];
+            this.reserve = res['reserve'];
             }
 
         },
