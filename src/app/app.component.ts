@@ -57,6 +57,12 @@ export class AppComponent implements OnInit {
     console.log(this.identity);
     console.log(this.token);
 
+      this.url = GLOBAL.url;
+      this.reserve = new Reserve('','','',null,'',null);
+
+
+
+
     if(this.token){
       document.getElementById('web').setAttribute('style', 'display:none');
       document.getElementById('mu-header-footer').setAttribute('style', 'display:block');
@@ -111,7 +117,7 @@ export class AppComponent implements OnInit {
 
             }
           }else{
-            this.reserve = response['reserve'];
+            this.reserve = res['reserve'];
             }
 
         },
