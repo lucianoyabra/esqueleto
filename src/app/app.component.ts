@@ -14,7 +14,7 @@ import { EventService } from './services/event.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  providers: [UserService, MessageService]
+  providers: [UserService, MessageService, ReserveService, EventService]
 
 })
 export class AppComponent implements OnInit {
