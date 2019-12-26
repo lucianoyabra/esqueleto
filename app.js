@@ -59,8 +59,8 @@ app.post('/formulario', (req, res) => {
     "Messages":[
       {
         "From": {
-          "Email": params.email,
-          "Name": params.nombre
+          "Email": "lucianoyabra@gmail.com",
+          "Name": "Luciano"
         },
         "To": [
           {
@@ -68,7 +68,7 @@ app.post('/formulario', (req, res) => {
             "Name": "Luciano"
           }
         ],
-        "Subject": params.asunto,
+        "Subject": "Nueva reserva desde la web",
         "TextPart":params.mensaje,
         "HTMLPart": `
         <strong>Nombre:</strong> ${params.nombre} <br/>
@@ -81,11 +81,11 @@ app.post('/formulario', (req, res) => {
   })
   request
     .then((result) => {
-      res.status(200).send();
+      res.status(200).send({message: "ok"});
       console.log(result.body)
     })
     .catch((err) => {
-      res.status(400).send();
+      res.status(200).send({message: "error"});
       console.log(err.statusCode)
     })
 

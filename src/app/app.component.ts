@@ -67,13 +67,18 @@ export class AppComponent implements OnInit {
   }
 
   public contactForm(form) {
-    this._messageService.sendMessageJet(form).subscribe(() => {
-      alert('todo bien');
+    this._messageService.sendMessageJet(form).subscribe(
+      response => {
+        if (response['message'] != undefined || response['message'] != null ) {
+          if (response['message'] == "ok") { alert('todo bien'); }else{ alert('todo mal'); }
+        }
+      } , error => {
+
       });
 
   }
 
-  public mostrarOcultar(){
+  public mostrarOcultar() {
 
     if (this.mostrarWeb == false) {
       document.getElementById('web').setAttribute('style','display:none');
