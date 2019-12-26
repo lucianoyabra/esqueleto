@@ -49,7 +49,7 @@ app.post('/formulario', (req, res) => {
   res.status(200).send();
  });
 
- app.post('/formularioJet',(req,res) => {
+ app.post('/formularioJetContact',(req,res) => {
   let params = req.body;
   const mailjet = require ('node-mailjet')
   .connect('4cbd5249f600247cbc93feb7ea46f022', '53de9b997c3a99b37cc1911a2d3ec44f')
@@ -73,6 +73,55 @@ app.post('/formulario', (req, res) => {
         "HTMLPart": `
         <strong>Nombre:</strong> ${params.nombre} <br/>
         <strong>E-mail:</strong> ${params.email} <br/>
+        <strong>Mensaje:</strong> ${params.mensaje}
+        `,
+        "CustomID": "AppGettingStartedTest"
+      }
+    ]
+  })
+  request
+    .then((result) => {
+      res.status(200).send({message: "ok"});
+      console.log(result.body)
+    })
+    .catch((err) => {
+      res.status(200).send({message: "error"});
+      console.log(err.statusCode)
+    })
+
+
+ });
+
+
+ app.post('/formularioJetReserve',(req,res) => {
+  let params = req.body;
+  const mailjet = require ('node-mailjet')
+  .connect('4cbd5249f600247cbc93feb7ea46f022', '53de9b997c3a99b37cc1911a2d3ec44f')
+  const request = mailjet
+  .post("send", {'version': 'v3.1'})
+  .request({
+    "Messages":[
+      {
+        "From": {
+          "Email": "lucianoyabra@gmail.com",
+          "Name": "Luciano"
+        },
+        "To": [
+          {
+            "Email": "luchoyabra@hotmail.com",
+            "Name": "Luciano"
+          }
+        ],
+        "Subject": "Nueva reserva desde la web",
+        "TextPart":params.mensaje,
+        "HTMLPart": `
+        <strong>Nombre:</strong> ${params.nombre} <br/>
+        <strong>E-mail:</strong> ${params.email} <br/>
+        <strong>Phone:</strong> ${params.telefono} <br/>
+        <strong>Cantidad:</strong> ${params.personas} <br/>
+        <strong>Fecha:</strong> ${params.fecha} <br/>
+        <strong>Hora:</strong> ${params.hora} <br/>
+
         <strong>Mensaje:</strong> ${params.mensaje}
         `,
         "CustomID": "AppGettingStartedTest"

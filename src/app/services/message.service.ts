@@ -31,7 +31,7 @@ export class MessageService {
 
     }
 
-    sendMessageJet(body) {
+    sendMessageJet(body, type) {
       /*
       let params = JSON.stringify(body);
 
@@ -42,7 +42,11 @@ export class MessageService {
       });
       console.log('va  ahacer el post con el body : ' + body);
       // tslint:disable-next-line: max-line-length
-      return this._http.post('https://peaceful-springs-20903.herokuapp.com/formularioJet', body, {headers:headers}).pipe(res=>res); // , {headers:headers}).pipe(res=>res);
+      if(type == "contact") {
+        return this._http.post('https://peaceful-springs-20903.herokuapp.com/formularioJetContact', body, {headers:headers}).pipe(res=>res); // , {headers:headers}).pipe(res=>res);
+      }else {
+        return this._http.post('https://peaceful-springs-20903.herokuapp.com/formularioJetReserve', body, {headers:headers}).pipe(res=>res); // , {headers:headers}).pipe(res=>res);
+      }
 
       }
 }

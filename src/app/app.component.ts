@@ -6,6 +6,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { WebsocketService } from './socket/websocket.service';
 import { MessageService } from './services/message.service';
 import { HttpClient, HttpResponse, HttpHeaders, HttpRequest } from '@angular/common/http';
+import { Reserve } from './models/reserve';
 
 
 @Component({
@@ -30,6 +31,7 @@ export class AppComponent implements OnInit {
   public name : string;
   public message : string;
   public endpoint : string;
+  public reserve: Reserve;
 
   constructor(private _userService: UserService,
     private _route: ActivatedRoute,
@@ -67,10 +69,30 @@ export class AppComponent implements OnInit {
   }
 
   public contactForm(form) {
-    this._messageService.sendMessageJet(form).subscribe(
+    this._messageService.sendMessageJet(form, "contact" ).subscribe(
       response => {
         if (response['message'] != undefined || response['message'] != null ) {
-          if (response['message'] == "ok") { alert('todo bien'); }else{ alert('todo mal'); }
+          if (response['message'] == "ok") {
+            alert('todo bien');
+          }else {
+            alert('todo mal');
+          }
+        }
+      } , error => {
+
+      });
+
+  }
+
+  public reserveForm(form) {
+    this._messageService.sendMessageJet(form, "reserve" ).subscribe(
+      response => {
+        if (response['message'] != undefined || response['message'] != null ) {
+          if (response['message'] == "ok") {
+            alert('todo bien');
+          }else {
+            alert('todo mal');
+          }
         }
       } , error => {
 
@@ -81,8 +103,8 @@ export class AppComponent implements OnInit {
   public mostrarOcultar() {
 
     if (this.mostrarWeb == false) {
-      document.getElementById('web').setAttribute('style','display:none');
-      document.getElementById('mu-header-footer').setAttribute('style','display:block');
+      document.getElementById('web').setAttribute('style', 'display:none' );
+      document.getElementById('mu-header-footer').setAttribute('style', 'display:block');
       this.mostrarWeb = true;
     } else {
       document.getElementById('web').setAttribute('style','display:block');
