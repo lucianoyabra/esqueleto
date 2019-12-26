@@ -836,12 +836,14 @@
 
             <div class="mu-reservation-content">
               <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione quidem autem iusto, perspiciatis, amet, quaerat blanditiis ducimus eius recusandae nisi aut totam alias consectetur et.</p>
+
+              <!--
               <div class="col-md-6">
                 <div class="mu-reservation-left">
                   <app-reserve-add></app-reserve-add>
                 </div>
               </div>
-              <!--
+            -->
               <div class="col-md-6">
                 <div class="mu-reservation-left">
                   <form class="mu-reservation-form" #form="ngForm" (ngSubmit)="reserveForm(form.value)" >
@@ -905,17 +907,12 @@
                           *ngIf="!time.valid && time.touched">Debe Ingresar el horario</span>
                         </div>
                       </div>
-                      <div class="col-md-12">
-                        <div class="form-group">
-                          <textarea class="form-control" cols="30" rows="10" placeholder="Your Message"></textarea>
-                        </div>
-                      </div>
                       <button type="submit" class="mu-readmore-btn">Make Reservation</button>
                     </div>
                   </form>
                 </div>
               </div>
-              -->
+
 
               <div class="col-md-5 col-md-offset-1">
                 <div class="mu-reservation-right">

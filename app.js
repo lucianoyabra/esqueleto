@@ -68,7 +68,7 @@ app.post('/formulario', (req, res) => {
             "Name": "Luciano"
           }
         ],
-        "Subject": "Nueva reserva desde la web",
+        "Subject": "Nueva contacto desde la web",
         "TextPart":params.mensaje,
         "HTMLPart": `
         <strong>Nombre:</strong> ${params.nombre} <br/>
@@ -113,16 +113,14 @@ app.post('/formulario', (req, res) => {
           }
         ],
         "Subject": "Nueva reserva desde la web",
-        "TextPart":params.mensaje,
+        "TextPart":"Algo mensajeado",
         "HTMLPart": `
-        <strong>Nombre:</strong> ${params.nombre} <br/>
+        <strong>Nombre:</strong> ${params.name} <br/>
         <strong>E-mail:</strong> ${params.email} <br/>
-        <strong>Phone:</strong> ${params.telefono} <br/>
-        <strong>Cantidad:</strong> ${params.personas} <br/>
-        <strong>Fecha:</strong> ${params.fecha} <br/>
-        <strong>Hora:</strong> ${params.hora} <br/>
-
-        <strong>Mensaje:</strong> ${params.mensaje}
+        <strong>Phone:</strong> ${params.phone} <br/>
+        <strong>Cantidad:</strong> ${params.people} <br/>
+        <strong>Fecha:</strong> ${params.date} <br/>
+        <strong>Hora:</strong> ${params.time} <br/>
         `,
         "CustomID": "AppGettingStartedTest"
       }
