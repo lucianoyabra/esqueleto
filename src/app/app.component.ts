@@ -97,22 +97,13 @@ export class AppComponent implements OnInit {
   }
 
   public reserveForm(form) {
-    this._messageService.sendMessageJet(form, "reserve" ).subscribe(
+    this._messageService.sendMessageJet(form, "reserve").subscribe(
       response => {
         if (response['message'] != undefined || response['message'] != null ) {
           if (response['message'] == "ok") {
-              this.alertMessage = 'Error en el servidor' ;
-            }else{
-              this.alertMessage = 'Reserva agregada satisfactoriamente';
-              this.reserve = new Reserve('','','',null,'',null);
-              this.webSocketService.emit('new reserve', res['reserve']);
-
-            }
-          }else{
-            this.reserve = res['reserve'];
-            }}
-
-
+            this.agregarReserva();
+          }
+        }
         },
         error =>{
           var errorMensaje = <any>error;
@@ -123,18 +114,6 @@ export class AppComponent implements OnInit {
           }
         }
       );
-*/
-
-
-          this.agregarReserva();
-
-          }else {
-            alert('todo mal');
-          }
-        }
-      } , error => {
-
-      });
 
   }
 
