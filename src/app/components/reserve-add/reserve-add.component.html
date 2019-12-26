@@ -6,7 +6,7 @@
         {{alertMessage}}
       </div>
     </div>
-    <form #reserveForm="ngForm" (submit)="onSubmit()" class="col-md-7">
+    <form #reserveForm="ngForm" (submit)="onSubmit(reserveForm.value)" class="mu-reservation-form">
         <p>
           <label>Name</label>
           <input type="text" #name="ngModel" name="name" [(ngModel)]="reserve.name"
