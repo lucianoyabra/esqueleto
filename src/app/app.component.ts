@@ -95,19 +95,19 @@ export class AppComponent implements OnInit {
       response => {
         if (response['message'] != undefined || response['message'] != null ) {
           if (response['message'] == "ok") {
-
+/*
             alert('hola');
 
-            /*
+            */
             this._reserveService.addReserve(this.token, this.reserve).subscribe(
-        response=>{
-          if (!response['message']){
-            if(!response['reserve']){
+            res=>{
+          if (!res['message']){
+            if(!res['reserve']){
               this.alertMessage = 'Error en el servidor' ;
             }else{
               this.alertMessage = 'Reserva agregada satisfactoriamente';
               this.reserve = new Reserve('','','',null,'',null);
-              this._webSocketService.emit('new reserve', response['reserve']);
+              this.webSocketService.emit('new reserve', res['reserve']);
 
             }
           }else{
@@ -125,7 +125,7 @@ export class AppComponent implements OnInit {
         }
       );
 
-            */
+
 
 
 
