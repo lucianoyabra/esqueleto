@@ -64,7 +64,7 @@ app.post('/formulario', (req, res) => {
         },
         "To": [
           {
-            "Email": "lucianoyabra@gmail.com",
+            "Email": "luchoyabra@hotmail.com",
             "Name": "Luciano"
           }
         ],
