@@ -101,14 +101,6 @@ export class AppComponent implements OnInit {
       response => {
         if (response['message'] != undefined || response['message'] != null ) {
           if (response['message'] == "ok") {
-/*
-            alert('hola');
-
-            */
-            this._reserveService.addReserve(this.token, this.reserve).subscribe(
-            res=>{
-          if (!res['message']){
-            if(!res['reserve']){
               this.alertMessage = 'Error en el servidor' ;
             }else{
               this.alertMessage = 'Reserva agregada satisfactoriamente';
@@ -118,6 +110,51 @@ export class AppComponent implements OnInit {
             }
           }else{
             this.reserve = res['reserve'];
+            }}
+
+
+        },
+        error =>{
+          var errorMensaje = <any>error;
+          if(errorMensaje != null){
+            var body = JSON.parse(error._body);
+            this.alertMessage = body.message;
+            console.log(error);
+          }
+        }
+      );
+*/
+
+
+          this.agregarReserva();
+
+          }else {
+            alert('todo mal');
+          }
+        }
+      } , error => {
+
+      });
+
+  }
+
+  public agregarReserva(){
+    this._route.params.forEach((params:Params)=>{
+      //let album_id = params['album'];
+      //this.song.album = album_id;
+      this._reserveService.addReserve(this.token, this.reserve).subscribe(
+        response=>{
+          if (!response['message']){
+            if(!response['reserve']){
+              this.alertMessage = 'Error en el servidor' ;
+            }else{
+              this.alertMessage = 'Reserva agregada satisfactoriamente';
+              this.reserve = new Reserve('','','',null,'',null);
+              this.webSocketService.emit('new reserve', response['reserve']);
+
+            }
+          }else{
+            this.reserve = response['reserve'];
             }
 
         },
@@ -131,18 +168,8 @@ export class AppComponent implements OnInit {
         }
       );
 
-
-
-
-
-          }else {
-            alert('todo mal');
-          }
-        }
-      } , error => {
-
-      });
-
+    });
+    console.log(this.reserve);
   }
 
   public mostrarOcultar() {
