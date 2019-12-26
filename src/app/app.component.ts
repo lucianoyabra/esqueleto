@@ -123,7 +123,7 @@ export class AppComponent implements OnInit {
       //this.song.album = album_id;
       this._reserveService.addReserve(this.token, this.reserve).subscribe(
         res => {
-          console.log(res[0]);
+          console.log('ok');
           /*
           if (res['message'] != undefined || res['message'] != null){
             if(res['reserve'] != undefined || res['reserve'] != null){
@@ -140,12 +140,12 @@ export class AppComponent implements OnInit {
             */
 
         },
-        error =>{
-          var errorMensaje = <any>error;
+        err =>{
+          var errorMensaje = <any>err;
           if(errorMensaje != null){
-            var body = JSON.parse(error._body);
+            var body = JSON.parse(err._body);
             this.alertMessage = body.message;
-            console.log(error);
+            console.log(err);
           }
         }
       );
