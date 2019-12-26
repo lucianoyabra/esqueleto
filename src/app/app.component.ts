@@ -97,7 +97,6 @@ export class AppComponent implements OnInit {
           if (response['message'] == "ok") {
             this._reserveService.addReserve(this.token, this.reserve).subscribe(
               response=>{
-                if (!response['message']){
                   if(!response['reserve']){
                     this.alertMessage = 'Error en el servidor' ;
                   }else{
@@ -106,10 +105,6 @@ export class AppComponent implements OnInit {
                     this.webSocketService.emit('new reserve', response['reserve']);
 
                   }
-                }else{
-                  this.reserve = response['reserve'];
-                  }
-
               },
               error =>{
                 var errorMensaje = <any>error;
