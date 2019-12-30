@@ -391,7 +391,7 @@ img {
 #mu-slider {
   display: inline;
   float: left;
-  margin-top: -47px;
+  margin-top: -100px;
   width: 100%;
   position: relative;
 }
@@ -613,7 +613,7 @@ img {
 
 #mu-counter {
   background-attachment: fixed;
-  background-image: url("assets/img/counter-bg.jpeg");
+  background-image: url("../src/assets/img/counter-bg.jpeg");
   background-size: cover;
   display: inline;
   float: left;
