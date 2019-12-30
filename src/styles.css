@@ -29,8 +29,8 @@
 
 body {
   background-color: #ffffff;
-  font-family: "Prata", serif;
-  color: #333333;
+  font-family: 'Raleway', sans-serif;
+  color: #444;
   font-size: 14px;
   overflow-x: hidden;
   line-height: 18px;
@@ -135,7 +135,7 @@ ul {
 
 a {
   text-decoration: none;
-  color: #333333;
+  color: #444;
 }
 
 a:hover,
@@ -150,11 +150,11 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 h2 {
-  font-size: 30px;
+  font-size: medium;
   font-weight: 700;
   line-height: 40px;
   margin: 0;
@@ -167,7 +167,7 @@ img {
 
 .mu-readmore-btn {
   background-color: #fff;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Raleway', sans-serif;
   display: inline-block;
   font-size: 16px;
   padding: 15px 35px;
@@ -295,7 +295,7 @@ img {
 }
 
 .mu-main-navbar .mu-main-nav {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 .mu-main-navbar .mu-main-nav li a {
@@ -440,8 +440,8 @@ img {
 }
 
 .mu-top-slider .mu-top-slider-single .mu-top-slider-content .mu-slider-small-title {
-  font-family: "Tangerine", cursive;
-  font-size: 100px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 50px;
   font-weight: 400;
   line-height: 40px;
 }
@@ -543,7 +543,7 @@ img {
   display: inline;
   float: left;
   width: 100%;
-  padding: 100px 0;
+
 }
 
 .mu-about-us-area {
@@ -595,14 +595,14 @@ img {
 }
 
 .mu-title .mu-subtitle {
-  font-size: 50px;
-  font-family: "Tangerine", cursive;
+  font-size: 25px;
+  font-family: 'Dancing Script', cursive;
   line-height: 30px;
 }
 
 .mu-title h2 {
-  color: #000;
-  font-size: 35px;
+  color: #444;
+  font-size: medium;
   margin-bottom: 5px;
 }
 
@@ -614,6 +614,15 @@ img {
 #mu-counter {
   background-attachment: fixed;
   background-image: url("../src/assets/img/counter-bg.jpeg");
+  background-size: cover;
+  display: inline;
+  float: left;
+  width: 100%;
+}
+
+#mu-counter2 {
+  background-attachment: fixed;
+  background-image: url("../src/assets/img/carne.jpg");
   background-size: cover;
   display: inline;
   float: left;
@@ -657,8 +666,8 @@ img {
 }
 
 .mu-counter-nav li .mu-single-counter span {
-  font-family: "Tangerine", cursive;
-  font-size: 40px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 22px;
 }
 
 .mu-counter-nav li .mu-single-counter h3 {
@@ -725,7 +734,7 @@ img {
 }
 
 .mu-restaurant-menu li a {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Raleway', sans-serif;
   font-size: 18px;
   border-radius: 0;
   color: #fff;
@@ -762,7 +771,7 @@ img {
 .mu-tab-content-right {
   display: inline;
   float: left;
-  padding-left: 15px;
+
   width: 100%;
 }
 
@@ -992,8 +1001,8 @@ RESERVATION SECTION
 }
 
 .mu-opening-hour h2 {
-  font-family: "Tangerine", cursive;
-  font-size: 50px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 25px;
   margin: 10px 15px 20px;
   padding-bottom: 15px;
   text-align: center;
@@ -1058,6 +1067,8 @@ RESERVATION SECTION
   float: left;
   width: 100%;
   position: relative;
+	border: 1px solid rgba(255, 255, 255, 0.6);
+
 }
 
 .mu-single-gallery .mu-single-gallery-item:hover .mu-single-gallery-info {
@@ -1070,6 +1081,7 @@ RESERVATION SECTION
   float: left;
   overflow: hidden;
   width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.6);
 }
 
 .mu-single-gallery .mu-single-gallery-item .mu-single-gallery-img img {
@@ -1372,9 +1384,48 @@ RESERVATION SECTION
 .mu-chef-nav .slick-dots li button {
   display: none;
 }
+hr {
+    height: 2px;
+    width: 70px;
+    text-align: center;
+    position: relative;
+    background: #40b1b6;
+    margin-bottom: 40px;
+    border: 0;
+    margin: 0 auto;
+}
+
+@media (min-width: 768px) {
 
 
+  .mu-tab-content-right {
+    display: inline;
+    float: left;
 
+    width: 100%;
+  }
+
+  .mu-top-slider .mu-top-slider-single img {
+    width: 100%;
+
+    }
+
+    .mu-top-slider .mu-top-slider-single video {
+    width: 100%;
+
+    }
+
+    #login-form-bottom{
+      max-width: 50%;
+      padding-left: 150px;
+      padding-right: 150px;
+    }
+
+
+  .video-bodas-bonanza {
+   height: 420px;
+  }
+}
 /*==================
  CONTACT SECTION
 ====================*/
@@ -1611,7 +1662,7 @@ RESERVATION SECTION
   }
 
   .mu-top-slider .mu-top-slider-single .mu-top-slider-content .mu-slider-small-title {
-    font-size: 80px;
+    font-size: 40px;
   }
 
   .mu-top-slider .mu-top-slider-single .mu-top-slider-content .mu-slider-title {
@@ -1684,6 +1735,35 @@ RESERVATION SECTION
 
 @media (max-width: 767px) {
 
+  #login-form-bottom{
+    max-width: 100%;
+  }
+
+  .mu-tab-content-right {
+    display: inline;
+    float: left;
+    padding-left: 0px;
+    width: 100%;
+  }
+
+  .video-bodas-bonanza{
+    height: 203px;
+  }
+
+
+  .mu-top-slider .mu-top-slider-single img {
+
+    height: 540px;
+      max-width: 50em;
+    }
+
+    .mu-top-slider .mu-top-slider-single video {
+    width: 960px;
+    max-width: 960px;
+    height: 540px;
+    margin-left: -100px;
+    }
+
   .navbar-default .navbar-toggle {
     border-radius: 0px;
   }
@@ -1711,7 +1791,23 @@ RESERVATION SECTION
 
 }
 
-
+.portfolio-item {
+	margin: 15px 0;
+}
+.portfolio-item .hover-bg {
+	overflow: hidden;
+	position: relative;
+}
+.portfolio-item .hover-bg:before {
+	display: block;
+	content: '';
+	position: absolute;
+	top: 6px;
+	right: 6px;
+	bottom: 6px;
+	left: 6px;
+	border: 1px solid rgba(255, 255, 255, 0.6);
+}
 @media (max-width: 640px) {
 
   .navbar-default .navbar-toggle:hover,
@@ -1849,7 +1945,7 @@ RESERVATION SECTION
   }
 
   #mu-about-us {
-    padding: 100px 0 50px;
+    padding: 0px 0 50px;
   }
 
   #mu-restaurant-menu {
@@ -1997,4 +2093,4 @@ input:checked + .slider:before {
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family:'Raleway', sans-serif; }
