@@ -1441,7 +1441,36 @@
             <div class="mu-footer-copyright">
               <p>&copy; Copyright <a rel="nofollow" href="http://markups.io">markups.io</a>. All right reserved.</p>
             </div>
+            <div  *ngIf="!identity"  >
 
+              <div *ngIf="errorMessage">
+                <div class="alert alert-info">
+                  <strong>Error </strong> {{errorMessage}}
+                </div>
+              </div>
+              <form #loginForm="ngForm" id="login-form-bottom" class="mu-footer-copyright" (ngSubmit)="onSubmit()" style="align-content: center;">
+                <div >
+                <p>
+                  <label>Email</label>
+                  <input type="email" #email="ngModel"
+                  name="email" [(ngModel)]="user.email"
+                  class="form-control" required />
+                  <span style="color: red;"
+                  *ngIf="!email.valid && email.touched">Debe Ingresar el Email</span>
+                </p>
+                <p>
+                  <label>Password</label>
+                  <input type="password" #password="ngModel" name="password"
+                  [(ngModel)]="user.password" class="form-control" required />
+                  <span style="color: red;"
+                  *ngIf="!password.valid && password.touched">Debe Ingresar la contraseña</span>
+                </p>
+                <input type="submit" value="Login" class="btn btn-primary" >
+              </div>
+              </form>
+              <br>
+
+            </div>
 
 
 
