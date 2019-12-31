@@ -53,6 +53,7 @@ export class AppComponent implements OnInit {
     this.url = GLOBAL.url;
     this.subscription = _router.events.subscribe((event) => {
       if (event instanceof NavigationStart) {
+        alert('hola');
         browserRefresh = !_router.navigated;
       }
     });
