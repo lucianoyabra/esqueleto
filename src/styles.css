@@ -278,6 +278,18 @@ img {
   z-index: 999;
 }
 
+#mu-header-header {
+  background-color: rgba(0, 0, 0, 0.6);
+  color:white;
+
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 999;
+}
+
 /*==================
  NAVBAR SECTION
 ====================*/
@@ -426,9 +438,7 @@ img {
   z-index: 9;
 }
 
-.mu-top-slider .mu-top-slider-single img {
-  width: 100%;
-}
+
 
 .mu-top-slider .mu-top-slider-single .mu-top-slider-content {
   position: absolute;
@@ -1756,14 +1766,14 @@ hr {
   .mu-top-slider .mu-top-slider-single img {
 
     height: 540px;
-      max-width: 50em;
+    max-width: 760px;
     }
 
     .mu-top-slider .mu-top-slider-single video {
     width: 960px;
     max-width: 960px;
     height: 540px;
-    margin-left: -100px;
+    margin-left: -300px;
     }
 
   .navbar-default .navbar-toggle {
@@ -1786,6 +1796,12 @@ hr {
   }
 
   #mu-counter .mu-counter-overlay .mu-counter-area .mu-counter-nav li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-right: none;
+  }
+
+  #mu-counter2 .mu-counter-overlay .mu-counter-area .mu-counter-nav li {
     margin-top: 10px;
     margin-bottom: 10px;
     border-right: none;

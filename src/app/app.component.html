@@ -21,10 +21,10 @@
 
 
       </div>
-      <div id="navbar" class="navbar-collapse collapse">
+      <div id="navbar" class="navbar-collapse collapse" *ngIf="!identity">
         <ul id="top-menu" class="nav navbar-nav navbar-right mu-main-nav">
           <li><a *ngIf="!identity" href="#mu-about-us">Nosotros</a></li>
-          <li><a *ngIf="!identity" href="#mu-restaurant-menu2">Bodas & 360</a></li>
+          <li><a *ngIf="!identity" href="#mu-counter2">Bodas & 360</a></li>
           <li><a *ngIf="!identity" href="#mu-restaurant-menu">Carta</a></li>
           <li><a *ngIf="!identity" href="#mu-reservation">Reserva</a></li>
           <li><a *ngIf="!identity" href="#mu-gallery">Galeria</a></li>
@@ -33,12 +33,13 @@
 
 
           </li>
-          <li><a id="user_logged" *ngIf="identity">
-            <div class="user-image">
-              <img id="image-logged" [routerLink]="['/']" routerLinkActive="router-link-active"  title="{{identity.name + ' ' + identity.surname }}" src="{{url + 'get-image-user/'+ identity.image}}" >
-            </div>
-
-            </a></li>
+          <li>
+            <a id="user_logged" *ngIf="identity">
+              <div class="user-image">
+                <img id="image-logged" [routerLink]="['/']" routerLinkActive="router-link-active"  title="{{identity.name + ' ' + identity.surname }}" src="{{url + 'get-image-user/'+ identity.image}}" >
+              </div>
+            </a>
+          </li>
           <li><a (click)="close()" *ngIf="identity &&  identity.role == 'ROLE_ADMIN'" [routerLink]="['mis-datos']" >MIS DATOS</a></li>
           <li><a (click)="close()" *ngIf="identity" [routerLink]="['crear-salon']" class="btnLogOut" >SALON</a></li>
           <li><a (click)="close()" *ngIf="identity" [routerLink]="['crear-reserva']" class="btnLogOut" >RESERVAS</a></li>
@@ -59,6 +60,38 @@
   </nav>
 </header>
 <!-- End header section -->
+
+
+<header id="mu-header-header" style="display: none;">
+  <nav class="navbar navbar-default mu-main-navbar" role="navigation">
+    <div class="container">
+      <!--<div class="navbar-header">
+         FOR MOBILE VIEW COLLAPSED BUTTON
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+      </div>-->
+      <div id="navbar" >
+        <div class="toolbar">
+          <div class="toolbar-inner">
+          <ul class="toolbar_icons icons_4row">
+          <li><a class="open-popup" [routerLink]="['mis-datos']" data-popup=".popup-login"><img title="" alt="" src="../assets/images/icons/white/user.png"></a></li>
+          <li><a class="open-panel" [routerLink]="['crear-usuario']" data-panel="left"><img title="" alt="" src="../assets/images/icons/white/tools.png"></a></li>
+          <li><a class="open-popup" [routerLink]="['crear-reserva']" ><img title="" alt="" src="../assets/images/icons/white/compass.png"></a></li>
+          <li><a (click)="logOut()"><img title="" alt="" src="../assets/images/icons/white/logout.png"></a></li>
+          </ul>
+          </div>
+      </div>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+</header>
+<!-- End header section -->
+
 
 <header id="mu-header-footer" style="display: none;">
   <nav class="navbar navbar-default mu-main-navbar" role="navigation">
@@ -264,7 +297,8 @@
 <!-- End About us -->
 
   <!-- Start Counter Section -->
-  <section id="mu-counter">
+
+  <section id="mu-counter2">
     <div class="mu-counter-overlay">
       <div class="container">
         <div class="row">
@@ -295,12 +329,8 @@
           </div>
 
           <div class="row">
-
             <iframe class="video-bodas-bonanza" width="100%" src="https://www.youtube.com/embed/W8KFcdcdT5A" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-              </div>
-
-
-
+          </div>
         </div>
       </div>
     </div>
@@ -329,7 +359,6 @@
               </div>
 
 
-
         </div>
       </div>
     </div>
@@ -338,7 +367,7 @@
 <!-- End About us -->
 
 
-<hr>
+
 
 
   <!-- Start Counter Section -->
