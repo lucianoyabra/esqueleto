@@ -1417,8 +1417,8 @@ hr {
 
     #login-form-bottom{
       max-width: 50%;
-      padding-left: 150px;
-      padding-right: 150px;
+      margin-left: 25%;
+
     }
 
 
@@ -1736,7 +1736,9 @@ hr {
 @media (max-width: 767px) {
 
   #login-form-bottom{
-    max-width: 100%;
+    max-width: 50%;
+    margin-left: 25%;
+
   }
 
   .mu-tab-content-right {
