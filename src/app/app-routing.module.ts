@@ -28,6 +28,7 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'crear-reserva', component: ReserveAddComponent},
   {path: 'ver-reservas', component: ReserveDetailComponent},
+  {path: 'https://peaceful-springs-20903.herokuapp.com/ver-reservas', component: ReserveDetailComponent},
   {path: 'crear-usuario', component: UserAddComponent},
   {path: 'mis-datos', component: UserEditComponent},
   {path: 'crear-salon', component: SalonAddComponent},
