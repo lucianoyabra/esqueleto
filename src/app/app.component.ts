@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from './services/user.service';
 import { User } from './models/user';
 import { GLOBAL } from './services/global';
-import { Router, ActivatedRoute, Params, NavigationStart } from '@angular/router';
+import { Router, ActivatedRoute, Params, NavigationStart, NavigationEnd } from '@angular/router';
 import { WebsocketService } from './socket/websocket.service';
 import { MessageService } from './services/message.service';
 import { HttpClient, HttpResponse, HttpHeaders, HttpRequest } from '@angular/common/http';
@@ -10,6 +10,7 @@ import { Reserve } from './models/reserve';
 import { ReserveService } from './services/reserve.service';
 import { EventService } from './services/event.service';
 import { Subscription } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 export let browserRefresh = false;
 
@@ -51,14 +52,16 @@ export class AppComponent implements OnInit {
     this.user_register =  new User('','','','','','ROLE_USER','');
     this.reserve = new Reserve('','','',null,'', null);
     this.url = GLOBAL.url;
-    this.subscription = _router.events.subscribe((event) => {
-      if (event instanceof NavigationStart) {
-        alert('hola fue carga normal');
-        browserRefresh = !_router.navigated;
-      }else{
-        alert('chau fue refresh');
+    this._router.events
+    .pipe(filter((rs): rs is NavigationEnd => rs instanceof NavigationEnd))
+    .subscribe(event => {
+      if (
+        event.id === 1 &&
+        event.url === event.urlAfterRedirects
+      ) {
+        alert('fue Refresh');
       }
-    });
+    })
 
   }
 
