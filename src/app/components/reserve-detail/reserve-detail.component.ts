@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params, NavigationEnd } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { EventService } from '../../services/event.service';
 import { Event } from '../../models/event';
@@ -9,6 +9,7 @@ import { ReserveService } from '../../services/reserve.service';
 import { WebsocketService } from '../../socket/websocket.service';
 import * as io from 'socket.io-client';
 import { Observable, BehaviorSubject, Subscriber } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-reserve-detail',
@@ -42,7 +43,16 @@ export class ReserveDetailComponent implements OnInit {
 
       // this.socket = io.connect('http://localhost:3000');
       // this.reserve = new Reserve('','','',null,'',null);
-
+      this._router.events
+      .pipe(filter((rs): rs is NavigationEnd => rs instanceof NavigationEnd))
+      .subscribe(event => {
+        if (
+          event.id === 1 &&
+          event.url === event.urlAfterRedirects
+        ) {
+          alert('fue Refresh');
+        }
+      })
    }
 
   ngOnInit() {
