@@ -2,14 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from './services/user.service';
 import { User } from './models/user';
 import { GLOBAL } from './services/global';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params, NavigationStart } from '@angular/router';
 import { WebsocketService } from './socket/websocket.service';
 import { MessageService } from './services/message.service';
 import { HttpClient, HttpResponse, HttpHeaders, HttpRequest } from '@angular/common/http';
 import { Reserve } from './models/reserve';
 import { ReserveService } from './services/reserve.service';
 import { EventService } from './services/event.service';
+import { Subscription } from 'rxjs';
 
+export let browserRefresh = false;
 
 @Component({
   selector: 'app-root',
@@ -35,6 +37,7 @@ export class AppComponent implements OnInit {
   public message : string;
   public endpoint : string;
   public reserve: Reserve;
+  public subscription: Subscription;
 
   constructor(private _userService: UserService,
     private _route: ActivatedRoute,
@@ -48,6 +51,12 @@ export class AppComponent implements OnInit {
     this.user_register =  new User('','','','','','ROLE_USER','');
     this.reserve = new Reserve('','','',null,'', null);
     this.url = GLOBAL.url;
+    this.subscription = _router.events.subscribe((event) => {
+      if (event instanceof NavigationStart) {
+        browserRefresh = !_router.navigated;
+      }
+    });
+
   }
 
   ngOnInit(){
