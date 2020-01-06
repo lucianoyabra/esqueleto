@@ -185,10 +185,12 @@ export class AppComponent implements OnInit {
     if (this.mostrarWeb == false) {
       document.getElementById('web').setAttribute('style', 'display:none' );
       document.getElementById('mu-header-footer').setAttribute('style', 'display:block');
+      document.getElementById('mu-header-header').setAttribute('style', 'display:block');
       this.mostrarWeb = true;
     } else {
       document.getElementById('web').setAttribute('style','display:block');
       document.getElementById('mu-header-footer').setAttribute('style','display:none');
+      document.getElementById('mu-header-header').setAttribute('style', 'display:none');
       this.mostrarWeb = false;
     }
   }

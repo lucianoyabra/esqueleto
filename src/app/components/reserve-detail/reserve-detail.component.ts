@@ -41,18 +41,6 @@ export class ReserveDetailComponent implements OnInit {
       this.token = this._userService.getToken();
       this.url = GLOBAL.url;
 
-      // this.socket = io.connect('http://localhost:3000');
-      // this.reserve = new Reserve('','','',null,'',null);
-      this._router.events
-      .pipe(filter((rs): rs is NavigationEnd => rs instanceof NavigationEnd))
-      .subscribe(event => {
-        if (
-          event.id === 1 &&
-          event.url === event.urlAfterRedirects
-        ) {
-          alert('fue Refresh');
-        }
-      })
    }
 
   ngOnInit() {
