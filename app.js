@@ -91,16 +91,21 @@ app.post('/formulario', (req, res) => {
 
 
  });
+ if (process.env.NODE_ENV === 'production') {
+	app.use(express.static('client/build'));
+}
+app.get('*', (request, response) => {
+	response.sendFile(path.join(__dirname, 'client/build', 'src/index.html'));
+});
 
-
- app.get('/*', function(req, res) {
-   window.location('https://peaceful-springs-20903.herokuapp.com/');
+// app.get('/*', function(req, res) {
+ //  window.location('https://peaceful-springs-20903.herokuapp.com/');
 //  res.sendFile(path.join(__dirname, 'src/index.html'), function(err) {
 //    if (err) {
 //      res.status(500).send(err)
 //    }
 //  })
-});
+//});
 
 
  app.post('/formularioJetReserve',(req,res) => {
