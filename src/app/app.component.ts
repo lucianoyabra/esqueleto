@@ -69,7 +69,7 @@ export class AppComponent implements OnInit {
 
   navigate(url, params) {
     this._router.navigateByUrl( url , {skipLocationChange: true});
-    this.location.replaceState(url);
+    this.location.replaceState('');
   }
 
   ngOnInit(){
