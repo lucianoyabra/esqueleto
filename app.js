@@ -99,8 +99,10 @@ app.get('/*', function(req, res) {
  //  window.location('https://peaceful-springs-20903.herokuapp.com/');
   res.sendFile(path.join(__dirname, 'src/index.html'), function(err) {
     if (err) {
-      res.status(500).send(err);
       console.log(err);
+      console.log('hola');
+      res.status(500).send(err);
+
     }
   })
 });
@@ -109,8 +111,9 @@ app.get('*', function(req, res) {
   //  window.location('https://peaceful-springs-20903.herokuapp.com/');
    res.sendFile(path.join(__dirname, 'src/index.html'), function(err) {
      if (err) {
+      console.log(err);
+      console.log('hola');
        res.status(500).send(err);
-       console.log(err);
      }
    })
  });
