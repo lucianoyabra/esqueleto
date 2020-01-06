@@ -93,6 +93,15 @@ app.post('/formulario', (req, res) => {
  });
 
 
+ app.get('/*', function(req, res) {
+  res.sendFile(path.join(__dirname, './src/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+})
+
+
  app.post('/formularioJetReserve',(req,res) => {
   let params = req.body;
   const mailjet = require ('node-mailjet')

@@ -54,7 +54,9 @@ export class AppComponent implements OnInit {
     this.user_register =  new User('','','','','','ROLE_USER','');
     this.reserve = new Reserve('','','',null,'', null);
     this.url = GLOBAL.url;
-    this._router.events
+
+
+    /*this._router.events
     .pipe(filter((rs): rs is NavigationEnd => rs instanceof NavigationEnd))
     .subscribe(event => {
       if (
@@ -63,8 +65,7 @@ export class AppComponent implements OnInit {
       ) {
         alert('fue Refresh');
       }
-    })
-
+    })*/
   }
 
   navigate(url, params) {
