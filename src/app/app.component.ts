@@ -12,6 +12,7 @@ import { EventService } from './services/event.service';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { Location } from '@angular/common';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 export let browserRefresh = false;
 

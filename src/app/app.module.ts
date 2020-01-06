@@ -22,7 +22,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { SalonAddComponent } from './components/salon-add/salon-add.component';
 import { SalonDetailComponent } from './components/salon-detail/salon-detail.component';
 import { MessageService } from './services/message.service';
-
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -50,7 +50,7 @@ import { MessageService } from './services/message.service';
     MatListModule,
     DragDropModule
   ],
-  providers: [{provide: APP_BASE_HREF, useValue: '/'}, MessageService],
+  providers: [{provide: APP_BASE_HREF, useValue: '/'}, MessageService, {provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
