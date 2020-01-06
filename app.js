@@ -98,14 +98,14 @@ app.get('*', (request, response) => {
 	response.sendFile(path.join(__dirname, 'client/build', 'src/index.html'));
 });
 
-// app.get('/*', function(req, res) {
+ app.get('/*', function(req, res) {
  //  window.location('https://peaceful-springs-20903.herokuapp.com/');
-//  res.sendFile(path.join(__dirname, 'src/index.html'), function(err) {
-//    if (err) {
-//      res.status(500).send(err)
-//    }
-//  })
-//});
+  res.sendFile(path.join(__dirname, 'client/build', 'src/index.html'), function(err) {
+    if (err) {
+      res.status(500).send(err)
+    }
+  })
+});
 
 
  app.post('/formularioJetReserve',(req,res) => {
