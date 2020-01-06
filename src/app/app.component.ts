@@ -107,7 +107,7 @@ export class AppComponent implements OnInit {
     // document.getElementById('boton-collapse').setAttribute('aria-expanded', 'false');
     // document.getElementById('boton-collapse').setAttribute('class', 'navbar-collapse collapse');
     document.getElementById('boton-collapse').click();
-    alert('hola boton click');
+    //alert('hola boton click');
   }
 
   public contactForm(form) {
