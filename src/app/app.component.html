@@ -2,6 +2,7 @@
 <!-- Start header section -->
 <header id="mu-header">
   <nav class="navbar navbar-default mu-main-navbar" role="navigation" >
+
     <div class="container">
       <div class="navbar-header" >
         <!-- FOR MOBILE VIEW COLLAPSED BUTTON -->
@@ -40,13 +41,13 @@
               </div>
             </a>
           </li>
-          <li><a (click)="close()" *ngIf="identity &&  identity.role == 'ROLE_ADMIN'" [routerLink]="['mis-datos']" >MIS DATOS</a></li>
-          <li><a (click)="close()" *ngIf="identity" [routerLink]="['crear-salon']" class="btnLogOut" >SALON</a></li>
-          <li><a (click)="close()" *ngIf="identity" [routerLink]="['crear-reserva']" class="btnLogOut" >RESERVAS</a></li>
-          <li><a (click)="close()" *ngIf="identity &&  identity.role == 'ROLE_ADMIN'" [routerLink]="['crear-usuario']" class="btnLogOut" >USUARIOS</a></li>
-          <li><a (click)="close()" *ngIf="identity" (click)="logOut()" class="btnLogOut" >LOGOUT</a></li>
+          <li><a href="#" (click)="close()" *ngIf="identity &&  identity.role == 'ROLE_ADMIN'" [routerLink]="['mis-datos']" >MIS DATOS</a></li>
+          <li><a href="#" (click)="close()" *ngIf="identity" [routerLink]="['crear-salon']" class="btnLogOut" >SALON</a></li>
+          <li><a href="#" (click)="close()" *ngIf="identity" [routerLink]="['crear-reserva']" class="btnLogOut" >RESERVAS</a></li>
+          <li><a href="#" (click)="close()" *ngIf="identity &&  identity.role == 'ROLE_ADMIN'" [routerLink]="['crear-usuario']" class="btnLogOut" >USUARIOS</a></li>
+          <li><a href="#" (click)="close()" *ngIf="identity" (click)="logOut()" class="btnLogOut" >LOGOUT</a></li>
           <li >
-            <a  style="padding-top:18px;"*ngIf="identity">
+            <a href="#"  style="padding-top:18px;"*ngIf="identity">
             <label   class="switch">
 
               <input (change)="mostrarOcultar()" type="checkbox">
@@ -73,8 +74,17 @@
           <li><a class="open-popup" [routerLink]="['mis-datos']" data-popup=".popup-login"><img title="" alt="" src="../assets/images/icons/white/user.png"></a></li>
           <li><a class="open-panel" [routerLink]="['crear-usuario']" data-panel="left"><img title="" alt="" src="../assets/images/icons/white/tools.png"></a></li>
           <li><a class="open-popup" [routerLink]="['crear-reserva']" ><img title="" alt="" src="../assets/images/icons/white/compass.png"></a></li>
-          <li><a (click)="logOut()"><img title="" alt="" src="../assets/images/icons/white/logout.png"></a></li>
-          </ul>
+          <li><a href="#" (click)="logOut()"><img title="" alt="" src="../assets/images/icons/white/logout.png"></a></li>
+          <li >
+            <a  style="padding-top:18px;"*ngIf="identity">
+            <label   class="switch">
+
+              <input (change)="mostrarOcultar()" type="checkbox">
+              <span class="slider round"></span>
+            </label>
+            </a>
+          </li>
+        </ul>
           </div>
       </div>
       </div>
