@@ -56,7 +56,7 @@ export class ReserveDetailComponent implements OnInit {
    }
 
   ngOnInit() {
-    window.location.replace('https://peaceful-springs-20903.herokuapp.com/');
+    // window.location.replace('https://peaceful-springs-20903.herokuapp.com/');
     this._webSocketService.listen('new reserve found').subscribe((data) => {
       this.getReserves();
     });

@@ -11,6 +11,7 @@ import { ReserveService } from './services/reserve.service';
 import { EventService } from './services/event.service';
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
+import { Location } from '@angular/common';
 
 export let browserRefresh = false;
 
@@ -46,7 +47,8 @@ export class AppComponent implements OnInit {
     private webSocketService: WebsocketService,
     private _messageService: MessageService,
     private _reserveService: ReserveService,
-    private _eventService: EventService)
+    private _eventService: EventService,
+    private location: Location)
     {
     this.user =  new User('','','','','','ROLE_USER','');
     this.user_register =  new User('','','','','','ROLE_USER','');
@@ -63,6 +65,11 @@ export class AppComponent implements OnInit {
       }
     })
 
+  }
+
+  navigate(url, params) {
+    this._router.navigateByUrl( url , {skipLocationChange: true});
+    this.location.replaceState(url);
   }
 
   ngOnInit(){

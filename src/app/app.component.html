@@ -102,7 +102,7 @@
           <div class="toolbar-inner">
           <ul class="toolbar_icons icons_4row">
           <li><a class="open-popup" href="#" data-popup=".popup-login"><img title="" alt="" src="../assets/images/icons/white/user.png"></a></li>
-          <li><a class="open-panel" [routerLink]="['ver-reservas']" data-panel="left"><img title="" alt="" src="../assets/images/icons/white/lists.png"></a></li>
+          <li><a class="open-panel" (click)="navigate('ver-reservas');"  data-panel="left"><img title="" alt="" src="../assets/images/icons/white/lists.png"></a></li>
           <li><a class="open-popup" [routerLink]="['ver-salon','1']" ><img title="" alt="" src="../assets/images/icons/white/heart.png"></a></li>
           <li><a href="contact.html"><img title="" alt="" src="../assets/images/icons/white/envelope.png"></a></li>
           </ul>
