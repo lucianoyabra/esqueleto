@@ -34,7 +34,7 @@ function saveUser(req, res){
                         res.status(500).send({message: 'Error en la peticion'});
                     }else{
                         if(userFound){
-                            return res.status(404).send({message: 'Ya hay un usuario registrado con el email ingresado'});   
+                            return res.status(404).send({message: 'Ya hay un usuario registrado con el email ingresado'});
                         }else{
                             user.save((err, userStored) => {
                                 if(err){
@@ -50,12 +50,12 @@ function saveUser(req, res){
                         }
                     }
                 });
-                
+
                 //return;
                 //guardar usuario
 
             }else{
-                res.status(404).send({message: 'Rellenar todos los campos'});        
+                res.status(404).send({message: 'Rellenar todos los campos'});
             }
         })
     }else{
@@ -67,7 +67,7 @@ function saveUser(req, res){
 
 function loginUser(req, res){
     var params = req.body;
-    
+
     var email = params.email;
     var password = params.password;
 
@@ -91,9 +91,9 @@ function loginUser(req, res){
                                 user: user
                             });
                         }else{
-                            
+
                             res.status(200).send({user: user});
-                            
+
                         }
                     }else{
                         res.status(404).send({message: 'El Usuario no ha podido loguearse'});
@@ -151,7 +151,7 @@ function getUser(req, res){
 function uploadImage(req, res){
     var userId = req.params.id;
     var file_name = 'Imagen no subida';
-    
+    console.log(req);
     if(req.files){
         var file_path = req.files.image.path;
         var file_split = file_path.split('\\');
@@ -186,8 +186,8 @@ function uploadImage(req, res){
 
 function getImageFile(req, res){
     var imageFile = req.params.imageFile;
-    var pathFile = './uploads/users/' + imageFile;
-    
+    var pathFile = '../uploads/users/' + imageFile;
+
     fs.exists(pathFile, function(exists){
         if (exists){
             res.sendFile(path.resolve(pathFile));

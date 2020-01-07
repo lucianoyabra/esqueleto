@@ -98,8 +98,8 @@ export class UserEditComponent implements OnInit {
         }
       }
       xhr.open('POST', url, true);
-      //xhr.setRequestHeader('Authorization', token);
-      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+      xhr.setRequestHeader('Authorization', token);
+      //xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xhr.send(formData);
     });
   }
