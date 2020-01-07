@@ -73,8 +73,8 @@ export class UserEditComponent implements OnInit {
   }
 
   fileChangeEvent(fileInput: any){
+    console.log(fileInput);
     this.fileToUpload = <Array<File>>fileInput.target.files;
-
   }
 
   makeFileRequest(url: string, params: Array<string>, files: Array<File>){
@@ -98,7 +98,8 @@ export class UserEditComponent implements OnInit {
         }
       }
       xhr.open('POST', url, true);
-      xhr.setRequestHeader('Authorization', token);
+      //xhr.setRequestHeader('Authorization', token);
+      xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
       xhr.send(formData);
     });
   }

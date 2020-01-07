@@ -80,12 +80,8 @@ export class AppComponent implements OnInit {
     this.token = this._userService.getToken();
     console.log(this.identity);
     console.log(this.token);
-
-      this.url = GLOBAL.url;
-      this.reserve = new Reserve('','','',null,'',null);
-
-
-
+    this.url = GLOBAL.url;
+    this.reserve = new Reserve('','','',null,'',null);
 
     if(this.token){
       document.getElementById('web').setAttribute('style', 'display:none');
