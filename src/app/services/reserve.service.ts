@@ -14,11 +14,10 @@ export class ReserveService{
     this.url = GLOBAL.url;
   }
 
-  addReserve(token, reserve: Reserve){
+  addReserve(reserve: Reserve){
     let params = JSON.stringify(reserve);
     let headers = new HttpHeaders({
-      'content-type':'application/json',
-      'authorization': token
+      'content-type':'application/json'
     });
     return this._http.post(this.url + 'reserve', params, {headers:headers}).pipe(res=>res);
   }

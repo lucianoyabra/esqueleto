@@ -11,7 +11,7 @@ var md_upload = multipart({uploadDir: './uploads/reserves'});
 
 
 api.get('/reserve/:id', md_auth.ensureAuth  , ReserveController.getReserve);
-api.post('/reserve', md_auth.ensureAuth  , ReserveController.saveReserve);
+api.post('/reserve', ReserveController.saveReserve);
 api.get('/reserves/:page?', md_auth.ensureAuth  , ReserveController.getReserves);
 api.put('/reserve/:id', md_auth.ensureAuth  , ReserveController.updateReserve);
 api.delete('/deleteReserve/:id', md_auth.ensureAuth  , ReserveController.deleteReserve);

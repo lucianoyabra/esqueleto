@@ -107,7 +107,7 @@ export class ReserveAddComponent implements OnInit {
     this._route.params.forEach((params:Params)=>{
       //let album_id = params['album'];
       //this.song.album = album_id;
-      this._reserveService.addReserve(this.token, this.reserve).subscribe(
+      this._reserveService.addReserve(this.reserve).subscribe(
         response=>{
           if (!response['message']){
             if(!response['reserve']){

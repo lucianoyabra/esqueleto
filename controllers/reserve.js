@@ -20,7 +20,7 @@ function getReserve(req, res){
             }
         }
     });
-    
+
 }
 
 function getReserves(req, res){
@@ -48,7 +48,7 @@ function getReserves(req, res){
             }
         }
     });
-    
+
 */
    Reserve.find({'date': (new Date(Date.now()).toISOString().toString()).substr(0,10) + 'T00:00:00.000Z'}).sort('time').exec(function(err,reserves,total){
     if(err){
@@ -90,7 +90,7 @@ function saveReserve(req,res){
     reserve.date = params.date;
     reserve.time = params.time;
     reserve.people = params.people;
-    
+
     reserve.save((err, reserveStored) => {
         if(err){
             res.status(500).send({message: 'Error al guardar la reserva'});
@@ -177,7 +177,7 @@ function getImageFile(req, res){
     /*
     var imageFile = req.params.imageFile;
     var pathFile = './uploads/artists/' + imageFile;
-    
+
     fs.exists(pathFile, function(exists){
         if (exists){
             res.sendFile(path.resolve(pathFile));
@@ -194,6 +194,6 @@ module.exports = {
     getReserves,
     updateReserve,
     deleteReserve,
-    uploadImage, 
+    uploadImage,
     getImageFile
 };
