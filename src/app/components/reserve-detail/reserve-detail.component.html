@@ -19,7 +19,7 @@
     <tr *ngFor="let reserve of reserves">
       <th scope="row">{{reserve.time}}</th>
       <td>{{reserve.name}}</td>
-      <td>{{reserve.date}}</td>
+      <td>{{reserve.date | date:'shortTime'}}</td>
       <td>{{reserve.phone + ' - '+reserve.email}}</td>
       <td>{{reserve.people}}</td>
       <td *ngIf="identity.role == 'ROLE_ADMIN'">
