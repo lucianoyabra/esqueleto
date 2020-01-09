@@ -75,7 +75,8 @@
             ],
             "scripts": [],
             "assets": [
-              "src/assets"
+              "src/assets",
+              "ico.png"
             ]
           }
         },
