@@ -41,11 +41,11 @@
               </div>
             </a>
           </li>
-          <li><a href="#" (click)="close()" *ngIf="identity &&  identity.role == 'ROLE_ADMIN'" [routerLink]="['mis-datos']" >MIS DATOS</a></li>
-          <li><a href="#" (click)="close()" *ngIf="identity" [routerLink]="['crear-salon']" class="btnLogOut" >SALON</a></li>
-          <li><a href="#" (click)="close()" *ngIf="identity" [routerLink]="['crear-reserva']" class="btnLogOut" >RESERVAS</a></li>
-          <li><a href="#" (click)="close()" *ngIf="identity &&  identity.role == 'ROLE_ADMIN'" [routerLink]="['crear-usuario']" class="btnLogOut" >USUARIOS</a></li>
-          <li><a href="#" (click)="close()" *ngIf="identity" (click)="logOut()" class="btnLogOut" >LOGOUT</a></li>
+          <li><a href="#" (click)="close()" *ngIf="identity &&  identity.role == 'ROLE_ADMIN'" [routerLink]="['mis-datos']" >Mis Datos</a></li>
+          <li><a href="#" (click)="close()" *ngIf="identity" [routerLink]="['crear-salon']" class="btnLogOut" >Salon</a></li>
+          <li><a href="#" (click)="close()" *ngIf="identity" [routerLink]="['crear-reserva']" class="btnLogOut" >Reservas</a></li>
+          <li><a href="#" (click)="close()" *ngIf="identity &&  identity.role == 'ROLE_ADMIN'" [routerLink]="['crear-usuario']" class="btnLogOut" >Usuarios</a></li>
+          <li><a href="#" (click)="close()" *ngIf="identity" (click)="logOut()" class="btnLogOut" >Log Out</a></li>
           <li >
             <a href="#" (click)="close()"  style="padding-top:18px;"*ngIf="identity">
             <label   class="switch">

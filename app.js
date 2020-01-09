@@ -15,6 +15,8 @@ var event_routes = require('./routes/event');
 var user_routes = require('./routes/user');
 var salon_routes = require('./routes/salon');
 
+const multer = require('multer');
+
 const cors = require("cors");
 app.use(cors({origin:"*"}));
 app.use(bodyparser.urlencoded({extended:false}));
@@ -30,7 +32,16 @@ app.use((req, res, next) => {
     next();
 });
 
-
+const storage = multer.diskStorage({
+  destination: (req, file, callBack) => {
+    callBack(null, 'uploads/users' )
+  },
+  filename: (req, file, callBack) => {
+    callBack(null, `${file.originalname}` )
+  }
+})
+var upload = multer({ storage: storage });
+// let upload = multer({dest:'uploads/users/'})
 
 // rutas base
 app.use('/api',user_routes);
@@ -48,6 +59,19 @@ app.post('/formulario', (req, res) => {
   configMensaje.send(req.body);
   res.status(200).send();
  });
+
+app.post('/file', upload.single('file'),(req,res, next) => {
+  const file  = req.file
+  console.log(file);
+  console.log(file.filename);
+  if (!file) {
+    const error = new Error('please upload a file')
+    error.httpStatusCode = 400
+    return next(error)
+  }
+   res.send(file)
+})
+
 
  app.post('/formularioJetContact',(req,res) => {
   let params = req.body;

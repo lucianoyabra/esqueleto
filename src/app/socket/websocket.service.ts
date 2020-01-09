@@ -4,15 +4,13 @@ import { Observable, BehaviorSubject, Subscriber } from 'rxjs';
 import { Reserve } from '../models/reserve';
 // import { port, portSocket } from '../../../server/index.js';
 
-
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class WebsocketService {
   socket: any;
-  readonly uri = "/";
+  readonly uri = "http://localhost:3000/";
+  // readonly uri = "/";
 
   constructor() {
     this.socket = io(this.uri);

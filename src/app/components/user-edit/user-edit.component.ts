@@ -3,6 +3,7 @@ import { UserService } from '../../services/user.service';
 import { User } from '../../models/user';
 import { resolve } from 'url';
 import { GLOBAL } from '../../services/global';
+import { HttpClient, HttpResponse, HttpHeaders, HttpRequest } from '@angular/common/http';
 
 @Component({
   selector: 'app-user-edit',
@@ -16,9 +17,10 @@ export class UserEditComponent implements OnInit {
   public token;
   public alertMessage;
   public fileToUpload: Array<File>;
+  public fileUpload;
   public url: string;
 
-  constructor(private _userService: UserService) {
+  constructor(private _userService: UserService, private http: HttpClient) {
     this.titulo = 'Actualizar mis datos';
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
@@ -32,6 +34,23 @@ export class UserEditComponent implements OnInit {
   }
 
    onSubmit(){
+    if(!this.fileToUpload){
+      //redireccion
+    }else{
+      this.makeFileRequest(this.url + 'file', [] , this.fileToUpload);
+      /* OLD
+      this.makeFileRequest(this.url + 'upload-image-user/' + this.user._id, [], this.fileToUpload).then(
+        (result:any) => {
+          this.user.image = result['image'];
+          localStorage.setItem('identity', JSON.stringify(this.user));
+          let imagePath = this.url + 'get-image-user/' + this.user.image;
+          document.getElementById('image-logged').setAttribute('src',imagePath)
+        }
+      );
+      */
+    }
+
+
     this._userService.updateUser(this.user).subscribe(
       response => {
         if (!response['message']){
@@ -41,18 +60,7 @@ export class UserEditComponent implements OnInit {
             //this.user = response['user'];
             localStorage.setItem('identity', JSON.stringify(this.user));
             //document.getElementById("identity_name").innerHTML = this.user.name + ' ' + this.user.surname;
-            if(!this.fileToUpload){
-              //redireccion
-            }else{
-              this.makeFileRequest(this.url + 'upload-image-user/' + this.user._id, [], this.fileToUpload).then(
-                (result:any) => {
-                  this.user.image = result['image'];
-                  localStorage.setItem('identity', JSON.stringify(this.user));
-                  let imagePath = this.url + 'get-image-user/' + this.user.image;
-                  document.getElementById('image-logged').setAttribute('src',imagePath)
-                }
-              );
-            }
+
 
 
             this.alertMessage = 'Datos actualizados correctamente' ;
@@ -72,12 +80,41 @@ export class UserEditComponent implements OnInit {
     );
   }
 
-  fileChangeEvent(fileInput: any){
+  OldfileChangeEvent(fileInput: any){
     console.log(fileInput);
     this.fileToUpload = <Array<File>>fileInput.target.files;
   }
 
+  fileChangeEvent(event){
+    if (event.target.files.length > 0){
+      const file = event.target.files[0];
+      this.fileToUpload = <Array<File>>event.target.files;
+      this.fileUpload = file;
+    }
+  }
+
   makeFileRequest(url: string, params: Array<string>, files: Array<File>){
+    const formData = new FormData();
+    formData.append('file', this.fileUpload, this.fileUpload.name);
+    console.log(formData);
+    this.http.post<any>('http://localhost:8080/file', formData).subscribe(
+      (res) => {
+        console.log(res);
+        console.log('holaaaaa');
+        if (res.filename) {
+          alert(res.filename);
+          this.user.image = res.filename;
+          // localStorage.setItem('identity', JSON.stringify(this.user));
+          let imagePath = this.url + 'get-image-user/' + this.user.image;
+          document.getElementById('image-logged').setAttribute('src',imagePath);
+
+        }
+      },
+      (err) => console.log(err)
+    )
+  };
+
+  OldmakeFileRequest(url: string, params: Array<string>, files: Array<File>){
     var token = this.token;
     return new Promise(function(resolve, reject){
       var formData:any = new FormData();

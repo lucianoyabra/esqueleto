@@ -13,7 +13,8 @@
     "build": "ng build",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "ng build --output-path dist"
+    "postinstall": "ng build --output-path dist",
+    "dev": "nodemon server/index.js"
   },
   "author": "Luciano Yabra",
   "license": "MIT",
@@ -39,6 +40,7 @@
     "moment": "^2.24.0",
     "mongoose": "^5.7.8",
     "mongoose-pagination": "^1.0.0",
+    "multer": "^1.4.2",
     "node-mailjet": "^3.3.1",
     "node-sass": "^4.13.0",
     "nodemailer": "^6.4.2",

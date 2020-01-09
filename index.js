@@ -6,10 +6,10 @@ var port = process.env.PORT || 8080;
 
 
 mongoose.Promise = global.Promise;
-// mongodb://<dbuser>:<dbpassword>@ds351428.mlab.com:51428/heroku_5r2jqr3c
-// mongoose.connect('mongodb://lucho:gallito9@ds353338.mlab.com:53338/heroku_9tkwttw8',(err,res)=>{
-  mongoose.connect('mongodb://lucho:gallito9@ds155160.mlab.com:55160/heroku_vq26c2wf',(err,res)=>{
-//mongoose.connect('mongodb://localhost:27017/RestoApp',(err,res)=>{
+// PRODUCCION
+// mongoose.connect('mongodb://lucho:gallito9@ds155160.mlab.com:55160/heroku_vq26c2wf',(err,res)=>{
+// TEST
+mongoose.connect('mongodb://localhost:27017/RestoApp',(err,res)=>{
     if(err){
         throw err;
     }else{
