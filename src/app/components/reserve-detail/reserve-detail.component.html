@@ -1,11 +1,12 @@
 <div class="user-edit-class" style="overflow: scroll;" *ngIf="identity">
-  <h1>{{titulo +  ':'  + actualDay |date : "dd-MM-yyyy" }} </h1>
+  
   <div class="d-flex flex-row">
     <div class="trade-75">
-        <button type="button" class="btn trade-back" (click)="changePage(-1)"></button>
+        <a (click)="changePage(-1)" ><img src="../../assets/images/icons/white/lists.png" ></a>
     </div>
+    <h1>{{titulo +  ':'  + (actualDay | date : "dd-MM-yyyy") }} </h1>
      <div class="trade-10">
-        <button type="button" class="btn trade-next" (click)="changePage(1)"></button>
+        <a (click)="changePage(1)" ><img src="../../assets/images/icons/white/lists.png" ></a>
     </div>
 </div>
   <div *ngIf="alertMessage">
@@ -27,7 +28,7 @@
     <tr *ngFor="let reserve of reserves">
       <th scope="row">{{reserve.time}}</th>
       <td>{{reserve.name}}</td>
-      <td>{{reserve.date |date : "dd-MM-yyyy"}}</td>
+      <td>{{reserve.date | date : "dd-MM-yyyy"}}</td>
       <td>{{reserve.phone + ' - '+reserve.email}}</td>
       <td>{{reserve.people}}</td>
       <td *ngIf="identity.role == 'ROLE_ADMIN'">
