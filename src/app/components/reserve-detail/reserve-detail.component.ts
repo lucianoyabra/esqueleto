@@ -27,9 +27,9 @@ export class ReserveDetailComponent implements OnInit {
   public event: Event;
   public reserves: Reserve[];
   public socket: SocketIOClient.Socket;
-  public prevDay: String;
-  public nextDay: String;
-  public actualDay: String;
+  public prevDay: Date;
+  public nextDay: Date;
+  public actualDay: Date;
 
 
   constructor(
@@ -60,7 +60,7 @@ export class ReserveDetailComponent implements OnInit {
      */
     this.getReserves();
     // ((new Date(Date.now()).getUTCFullYear().toString() + '-' + (new Date(Date.now()).getUTCMonth() +1) + '-'+ new Date(Date.now()).getUTCDate() + 'T00:00:00.000Z').toString())
-    this.actualDay = (new Date().toString());
+    this.actualDay = (new Date());
     this.nextDay = (new Date(actualDay) + 1);
     this.prevDay = (new Date(actualDay) -1);
 
