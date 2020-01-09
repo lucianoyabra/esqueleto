@@ -35,14 +35,14 @@
 
           </li>
           <li>
-            <a id="user_logged" *ngIf="identity">
+            <a href="#" (click)="close()" id="user_logged" *ngIf="identity">
               <div class="user-image">
                 <img id="image-logged" [routerLink]="['/']" routerLinkActive="router-link-active"  title="{{identity.name + ' ' + identity.surname }}" src="{{url + 'get-image-user/'+ identity.image}}" >
               </div>
             </a>
           </li>
-          <li><a href="#" (click)="close()" *ngIf="identity &&  identity.role == 'ROLE_ADMIN'" [routerLink]="['mis-datos']" >Mis Datos</a></li>
-          <li><a href="#" (click)="close()" *ngIf="identity" [routerLink]="['crear-salon']" class="btnLogOut" >Salon</a></li>
+          <!--<li><a href="#" (click)="close()" *ngIf="identity &&  identity.role == 'ROLE_ADMIN'" [routerLink]="['mis-datos']" >Mis Datos</a></li>
+          <li><a href="#" (click)="close()" *ngIf="identity" [routerLink]="['crear-salon']" class="btnLogOut" >Salon</a></li>-->
           <li><a href="#" (click)="close()" *ngIf="identity" [routerLink]="['crear-reserva']" class="btnLogOut" >Reservas</a></li>
           <li><a href="#" (click)="close()" *ngIf="identity &&  identity.role == 'ROLE_ADMIN'" [routerLink]="['crear-usuario']" class="btnLogOut" >Usuarios</a></li>
           <li><a href="#" (click)="close()" *ngIf="identity" (click)="logOut()" class="btnLogOut" >Log Out</a></li>
@@ -124,10 +124,10 @@
                 <div class="toolbar">
                   <div class="toolbar-inner">
                   <ul class="toolbar_icons icons_4row">
-                  <li><a class="open-popup" href="#" data-popup=".popup-login"><img title="" alt="" src="../assets/images/icons/white/user.png"></a></li>
+                  <li><a class="open-popup" [routerLink]="['mis-datos']" data-popup=".popup-login"><img title="" alt="" src="../assets/images/icons/white/user.png"></a></li>
                   <li><a class="open-panel" [routerLink]="['ver-reservas']"  data-panel="left"><img title="" alt="" src="../assets/images/icons/white/lists.png"></a></li>
-                  <li><a class="open-popup" [routerLink]="['ver-salon','1']" ><img title="" alt="" src="../assets/images/icons/white/heart.png"></a></li>
-                  <li><a href="contact.html"><img title="" alt="" src="../assets/images/icons/white/envelope.png"></a></li>
+                  <li><a class="open-popup" href="#" ><img title="" alt="" src="../assets/images/icons/white/heart.png"></a></li>
+                  <li><a href="#"><img title="" alt="" src="../assets/images/icons/white/envelope.png"></a></li>
                   </ul>
                   </div>
               </div>
