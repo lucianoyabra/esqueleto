@@ -61,15 +61,20 @@ export class ReserveDetailComponent implements OnInit {
     this.getReserves();
     // ((new Date(Date.now()).getUTCFullYear().toString() + '-' + (new Date(Date.now()).getUTCMonth() +1) + '-'+ new Date(Date.now()).getUTCDate() + 'T00:00:00.000Z').toString())
     this.actualDay = (new Date());
-    this.nextDay = (new Date(actualDay) + 1);
-    this.prevDay = (new Date(actualDay) -1);
+    this.nextDay = new Date(actualDay);
+    nextDay.setDate(nextDay.getDate() + 1);
+    this.prevDay = new Date(actualDay);
+    prevDay.setDate(prevDay.getDate() + 1);
 
   }
 
   changePage(delta: number): void {
         this.actualDay = new date() + delta;
-        this.nextDay = new date( actualDay) + 1;
-        this.prevDay = new date( actualDay) - 1;
+        //this.actualDay = (new Date());
+        this.nextDay = new Date(actualDay);
+        nextDay.setDate(nextDay.getDate() + 1);
+        this.prevDay = new Date(actualDay);
+        prevDay.setDate(prevDay.getDate() + 1);
     }
 
   getReserves(){
