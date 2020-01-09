@@ -90,6 +90,8 @@ export class UserEditComponent implements OnInit {
       const file = event.target.files[0];
       this.fileToUpload = <Array<File>>event.target.files;
       this.fileUpload = file;
+      // alert('nombre de imagen: ' + this.fileUpload.name);
+      this.user.image = this.fileUpload.name;
     }
   }
 
@@ -102,7 +104,7 @@ export class UserEditComponent implements OnInit {
         console.log(res);
         console.log('holaaaaa');
         if (res.filename) {
-          alert(res.filename);
+          // alert(res.filename);
           this.user.image = res.filename;
           // localStorage.setItem('identity', JSON.stringify(this.user));
           let imagePath = this.url + 'get-image-user/' + this.user.image;
