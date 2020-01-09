@@ -31,6 +31,15 @@ export class ReserveService{
     return this._http.get(this.url + 'reserves', {headers:headers}).pipe(res=> res);
   }
 
+  getReservesDate(token, date){
+    let headers = new HttpHeaders({
+      'content-type':'application/json',
+      'authorization': token
+    });
+
+    return this._http.get(this.url + 'reserves/' + date, {headers:headers}).pipe(res=> res);
+  }
+
   getReserve(token, id:string){
     let headers = new HttpHeaders({
       'content-type':'application/json',

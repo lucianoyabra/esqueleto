@@ -80,6 +80,45 @@ function getReserves(req, res){
     }).sort('date');*/
 }
 
+function getReservesDate(req, res){
+
+  if(req.params.date){
+      var date = req.params.date;
+  }else{
+    res.status(404).send({message: "No hay fecha"});
+  }
+
+
+ Reserve.find({'date': (new Date(Date.now()).toISOString().toString()).substr(0,10) + 'T00:00:00.000Z'}).sort('time').exec(function(err,reserves,total){
+  if(err){
+      res.status(500).send({message: "Error en el servidor"});
+  }else{
+      if(!reserves){
+          res.status(404).send({message: "No hay reservas"});
+      }else{
+          var x = (new Date(Date.now()).toISOString().toString()).substr(0,10) + 'T00:00:00.000Z';
+          return res.status(200).send({
+              total: total,
+              reserves: reserves,
+              datenew: (new Date(Date.now()).toISOString().toString()).substr(0,10) + 'T00:00:00.000Z',
+              date: new Date(Date.now()).getUTCFullYear().toString() + '-' + (new Date(Date.now()).getUTCMonth() +1) + '-'+ new Date(Date.now()).getUTCDate() + 'T00:00:00.000Z'
+          });
+      }
+  }
+ });
+  /*Reserve.find(function(err, reserves, total){
+      if(err){
+          res.status(500).send({message: "Error en la peticion"});
+      }else{
+          if(!reserves){
+              res.status(404).send({message: "No hay reservas"});
+          }else{
+              return res.status(200).send({reserves: reserves});
+          }
+      }
+  }).sort('date');*/
+}
+
 function saveReserve(req,res){
     var reserve = new Reserve();
     var params = req.body;
@@ -192,6 +231,7 @@ module.exports = {
     getReserve,
     saveReserve,
     getReserves,
+    getReservesDate,
     updateReserve,
     deleteReserve,
     uploadImage,
