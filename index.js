@@ -7,9 +7,9 @@ var port = process.env.PORT || 8080;
 
 mongoose.Promise = global.Promise;
 // PRODUCCION
-// mongoose.connect('mongodb://lucho:gallito9@ds155160.mlab.com:55160/heroku_vq26c2wf',(err,res)=>{
+ mongoose.connect('mongodb://lucho:gallito9@ds155160.mlab.com:55160/heroku_vq26c2wf',(err,res)=>{
 // TEST
-mongoose.connect('mongodb://localhost:27017/RestoApp',(err,res)=>{
+// mongoose.connect('mongodb://localhost:27017/RestoApp',(err,res)=>{
     if(err){
         throw err;
     }else{

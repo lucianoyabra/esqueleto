@@ -1,7 +1,7 @@
 export var GLOBAL = {
   // PROD
-  // url: '/api/',
+   url: '/api/',
   // TEST
-  url: 'http://localhost:8080/api/',
+  // url: 'http://localhost:8080/api/',
   ip: '127.0.0.1'
 };

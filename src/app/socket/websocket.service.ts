@@ -9,8 +9,8 @@ import { Reserve } from '../models/reserve';
 })
 export class WebsocketService {
   socket: any;
-  readonly uri = "http://localhost:3000/";
-  // readonly uri = "/";
+  // readonly uri = "http://localhost:3000/";
+   readonly uri = "/";
 
   constructor() {
     this.socket = io(this.uri);
