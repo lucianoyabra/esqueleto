@@ -97,7 +97,7 @@ export class UserEditComponent implements OnInit {
     const formData = new FormData();
     formData.append('file', this.fileUpload, this.fileUpload.name);
     console.log(formData);
-    this.http.post<any>('http://localhost:8080/file', formData).subscribe(
+    this.http.post<any>('https://guarded-anchorage-80202.herokuapp.com/file', formData).subscribe(
       (res) => {
         console.log(res);
         console.log('holaaaaa');
