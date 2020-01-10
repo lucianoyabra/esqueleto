@@ -71,7 +71,7 @@ export class ReserveDetailComponent implements OnInit {
   changePage(delta: number): void {
         //&this.actualDay = new Date();
         this.actualDay.setDate(this.actualDay.getDate() + delta);
-        // alert(this.actualDay);
+         alert(this.actualDay);
         //this.actualDay = (new Date());
         this.nextDay = new Date(this.actualDay);
         this.nextDay.setDate(this.nextDay.getDate() + 1);
