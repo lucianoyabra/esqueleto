@@ -89,7 +89,7 @@ function getReservesDate(req, res){
   }
 
 
- Reserve.find({'date': (new Date(Date.now()).toISOString().toString()).substr(0,10) + 'T00:00:00.000Z'}).sort('time').exec(function(err,reserves,total){
+ Reserve.find({'date': date }).sort('time').exec(function(err,reserves,total){
   if(err){
       res.status(500).send({message: "Error en el servidor"});
   }else{
@@ -101,7 +101,7 @@ function getReservesDate(req, res){
               total: total,
               reserves: reserves,
               datenew: (new Date(Date.now()).toISOString().toString()).substr(0,10) + 'T00:00:00.000Z',
-              date: new Date(Date.now()).getUTCFullYear().toString() + '-' + (new Date(Date.now()).getUTCMonth() +1) + '-'+ new Date(Date.now()).getUTCDate() + 'T00:00:00.000Z'
+              date: date
           });
       }
   }

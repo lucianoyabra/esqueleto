@@ -79,7 +79,38 @@ export class ReserveDetailComponent implements OnInit {
         this.nextDay.setDate(this.nextDay.getDate() + 1);
         this.prevDay = new Date(this.actualDay);
         this.prevDay.setDate(this.prevDay.getDate() + 1);
+        this.getReservesDate();
     }
+
+    getReservesDate(){
+        // tslint:disable-next-line: max-line-length
+        const searchDate = ((new Date(this.actualDay).getUTCFullYear().toString() + '-' + (new Date(this.actualDay).getUTCMonth() +1) + '-'+ new Date(this.actualDay).getUTCDate() + 'T00:00:00.000Z').toString());
+        // tslint:disable-next-line: max-line-length
+        alert(searchDate); // ((new Date(Date.now()).getUTCFullYear().toString() + '-' + (new Date(Date.now()).getUTCMonth() +1) + '-'+ new Date(Date.now()).getUTCDate() + 'T00:00:00.000Z').toString())
+        this._reserveService.getReservesDate(this.token, searchDate).subscribe(
+          response => {
+            if (!response['reserves']) {
+              this.alertMessage = 'Error en el servidor' ;
+              // this._router.navigate(['/']);
+            } else {
+              this.reserves = response['reserves'];
+              console.log(this.reserves);
+            }
+
+
+          },
+          error =>{
+            var errorMensaje = <any>error;
+            if(errorMensaje != null){
+              var body = JSON.parse(error._body);
+              this.alertMessage = body.message;
+              console.log(error);
+            }
+          }
+        );
+
+    }
+
 
   getReserves(){
     this._route.params.forEach((params:Params)=>{
