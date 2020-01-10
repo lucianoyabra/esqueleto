@@ -30,6 +30,7 @@ export class ReserveDetailComponent implements OnInit {
   public prevDay: Date;
   public nextDay: Date;
   public actualDay: Date;
+  public showDay: String;
 
 
   constructor(
@@ -61,6 +62,7 @@ export class ReserveDetailComponent implements OnInit {
     this.getReserves();
     // ((new Date(Date.now()).getUTCFullYear().toString() + '-' + (new Date(Date.now()).getUTCMonth() +1) + '-'+ new Date(Date.now()).getUTCDate() + 'T00:00:00.000Z').toString())
     this.actualDay = (new Date());
+    this.showDay = this.actualDay.toLocaleTimeString();
     this.nextDay = new Date(this.actualDay);
     this.nextDay.setDate(this.nextDay.getDate() + 1);
     this.prevDay = new Date(this.actualDay);
@@ -71,7 +73,7 @@ export class ReserveDetailComponent implements OnInit {
   changePage(delta: number): void {
         //&this.actualDay = new Date();
         this.actualDay.setDate(this.actualDay.getDate() + delta);
-         alert(this.actualDay);
+        this.showDay = this.actualDay.toLocaleTimeString();
         //this.actualDay = (new Date());
         this.nextDay = new Date(this.actualDay);
         this.nextDay.setDate(this.nextDay.getDate() + 1);
