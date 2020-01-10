@@ -1,15 +1,16 @@
-<div class="user-edit-class" style="overflow: scroll;" *ngIf="identity">
+<div class="user-edit-class"  *ngIf="identity">
+
   <div class="row">
-  <div class="d-flex flex-row">
-    <div class="trade-75">
-        <button (click)="changePage(-1)" ><img width="25px" src="../../../assets/assets/images/icons/black/left.png" ></button>
-    </div>
+
     <h1>{{titulo +  ': '  + showDay }} </h1>
-     <div class="trade-10">
+    <div class="trade-75">
+      <button (click)="changePage(-1)" ><img width="25px" src="../../../assets/assets/images/icons/black/left.png" ></button>
+    </div>
+    <div class="trade-10">
         <button (click)="changePage(1)" ><img width="25px" src="../../../assets/assets/images/icons/black/right.png" ></button>
     </div>
 </div>
-</div>
+<div class="" style="overflow: scroll;">
   <div *ngIf="alertMessage">
     <div class="alert alert-info">
       {{alertMessage}}
@@ -42,4 +43,5 @@
     </tr>
   </tbody>
 </table>
+</div>
 </div>
