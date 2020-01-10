@@ -5,9 +5,7 @@
     <h1>{{titulo +  ': '  + showDay }} </h1>
     <div class="trade-75">
       <button (click)="changePage(-1)" ><img width="25px" src="../../../assets/assets/images/icons/black/left.png" ></button>
-    </div>
-    <div class="trade-10">
-        <button (click)="changePage(1)" ><img width="25px" src="../../../assets/assets/images/icons/black/right.png" ></button>
+      <button (click)="changePage(1)" ><img width="25px" src="../../../assets/assets/images/icons/black/right.png" ></button>
     </div>
 </div>
 <div class="" style="overflow: scroll;">
@@ -31,7 +29,7 @@
       <th scope="row">{{reserve.time}}</th>
       <td>{{reserve.name}}</td>
       <td>{{reserve.date | date : "dd-MM-yyyy"}}</td>
-      <td>{{reserve.phone + ' - '+reserve.email}}</td>
+      <td>{{reserve.phone + ' - '+ reserve.email}}</td>
       <td>{{reserve.people}}</td>
       <td *ngIf="identity.role == 'ROLE_ADMIN'">
           <a (click)="onCancelReserve()"
