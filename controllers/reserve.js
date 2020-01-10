@@ -89,7 +89,7 @@ function getReservesDate(req, res){
   }
 
 
- Reserve.find({'date': date }).sort('time').exec(function(err,reserves,total){
+ Reserve.find({'date': (new Date(date).toISOString().toString()).substr(0,10) + 'T00:00:00.000Z' }).sort('time').exec(function(err,reserves,total){
   if(err){
       res.status(500).send({message: "Error en el servidor"});
   }else{
