@@ -118,6 +118,11 @@ export class AppComponent implements OnInit {
     document.getElementById('notif-reserves').setAttribute('style', 'display:none');
   }
 
+  public cargo(){
+    document.getElementById('notif-reserves').innerText = '';
+    document.getElementById('notif-reserves').setAttribute('style', 'display:none');
+  }
+
   public contactForm(form) {
     this._messageService.sendMessageJet(form, "contact" ).subscribe(
       response => {

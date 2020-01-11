@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router, ActivatedRoute, Params, NavigationEnd } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { EventService } from '../../services/event.service';
@@ -32,7 +32,7 @@ export class ReserveDetailComponent implements OnInit {
   public nextDay: Date;
   public actualDay: Date;
   public showDay: String;
-  public appcompo: AppComponent;
+  @Output() carga = new EventEmitter<string>();
 
 
   constructor(
@@ -140,6 +140,8 @@ export class ReserveDetailComponent implements OnInit {
         }
       );
     });
+
+    this.carga.emit();
   }
 
   onCancelReserve(){
