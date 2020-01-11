@@ -41,6 +41,8 @@ export class AppComponent implements OnInit {
   public endpoint : string;
   public reserve: Reserve;
   public subscription: Subscription;
+  public notifReservas;
+
 
   constructor(private _userService: UserService,
     private _route: ActivatedRoute,
@@ -94,6 +96,12 @@ export class AppComponent implements OnInit {
 
     //LISTEN WEBSOCKET EVENT
 
+    this.webSocketService.listen('new reserve found').subscribe((data) => {
+      this.notifReservas = Number(this.notifReservas) + 1;
+      document.getElementById('notif-reserves').innerText = this.notifReservas;
+      document.getElementById('notif-reserves').setAttribute('style', 'display:block');
+    });
+
     this.webSocketService.listen('message').subscribe((data) => {
       console.log(data);
     });
@@ -104,6 +112,10 @@ export class AppComponent implements OnInit {
     // document.getElementById('boton-collapse').setAttribute('class', 'navbar-collapse collapse');
     document.getElementById('boton-collapse').click();
     //alert('hola boton click');
+  }
+  public clearNotif(){
+    document.getElementById('notif-reserves').innerText = '';
+    document.getElementById('notif-reserves').setAttribute('style', 'display:none');
   }
 
   public contactForm(form) {

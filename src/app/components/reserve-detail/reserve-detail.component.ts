@@ -10,6 +10,7 @@ import { WebsocketService } from '../../socket/websocket.service';
 import * as io from 'socket.io-client';
 import { Observable, BehaviorSubject, Subscriber } from 'rxjs';
 import { filter } from 'rxjs/operators';
+import {AppComponent} from '../../app.component';
 
 @Component({
   selector: 'app-reserve-detail',
@@ -137,10 +138,7 @@ export class ReserveDetailComponent implements OnInit {
           }
         }
       );
-
     });
-
-
   }
 
   onCancelReserve(){
