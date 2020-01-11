@@ -32,6 +32,7 @@ export class ReserveDetailComponent implements OnInit {
   public nextDay: Date;
   public actualDay: Date;
   public showDay: String;
+  public appcompo: AppComponent;
 
 
   constructor(

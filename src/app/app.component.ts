@@ -41,7 +41,7 @@ export class AppComponent implements OnInit {
   public endpoint : string;
   public reserve: Reserve;
   public subscription: Subscription;
-  public notifReservas;
+  public notifReservas = 0;
 
 
   constructor(private _userService: UserService,
@@ -98,7 +98,7 @@ export class AppComponent implements OnInit {
 
     this.webSocketService.listen('new reserve found').subscribe((data) => {
       this.notifReservas = Number(this.notifReservas) + 1;
-      document.getElementById('notif-reserves').innerText = this.notifReservas;
+      document.getElementById('notif-reserves').innerText = Number(this.notifReservas).toString();
       document.getElementById('notif-reserves').setAttribute('style', 'display:block');
     });
 
