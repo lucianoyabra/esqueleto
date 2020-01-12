@@ -108,19 +108,17 @@ export class AppComponent implements OnInit {
    }
 
   public close() {
-    // document.getElementById('boton-collapse').setAttribute('aria-expanded', 'false');
-    // document.getElementById('boton-collapse').setAttribute('class', 'navbar-collapse collapse');
     document.getElementById('boton-collapse').click();
-    //alert('hola boton click');
   }
+
   public clearNotif(){
     document.getElementById('notif-reserves').innerText = '';
     document.getElementById('notif-reserves').setAttribute('style', 'display:none');
   }
 
   public cargo(){
-    document.getElementById('notif-reserves').innerText = '';
-    document.getElementById('notif-reserves').setAttribute('style', 'display:none');
+    //document.getElementById('notif-reserves').innerText = '';
+    //document.getElementById('notif-reserves').setAttribute('style', 'display:none');
   }
 
   public contactForm(form) {

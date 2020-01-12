@@ -141,7 +141,7 @@ export class ReserveDetailComponent implements OnInit {
       );
     });
 
-    this.carga.emit();
+    // this.carga.emit();
   }
 
   onCancelReserve(){
