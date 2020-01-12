@@ -112,6 +112,7 @@ export class AppComponent implements OnInit {
   }
 
   public clearNotif(){
+    this.notifReservas = 0;
     document.getElementById('notif-reserves').innerText = '';
     document.getElementById('notif-reserves').setAttribute('style', 'display:none');
   }
